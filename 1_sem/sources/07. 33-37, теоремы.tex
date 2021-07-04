@@ -1,0 +1,82 @@
+\newpage
+\rhead{Нагибин}
+\subsection{Критерий Больцано-Коши для последовательностей и отображений}
+\begin{definition}
+$X$ {---} м. п., $X$ {---} полное $\Leftrightarrow \forall \{x_n\}$ фундаментальная сходится в $X$ 
+\end{definition}
+\begin{theorem*}
+Пусть $f: D \subset X \rightarrow Y$, $Y$ {---} полное, $a$ {---} предельная точка $D$:
+$$\exists \lim_{x \to a}{f(x)} \Leftrightarrow \forall \varepsilon > 0 \ \exists V(a) \ \forall x_1, x_2 \in V(a) \ \rho(x_1, x_2) < \varepsilon$$
+\end{theorem*}
+\begin{proof}
+$(\Rightarrow)$ Доказывается аналогично переходу от предела к сходимости к себе (по факту, это абсолютно тоже самое), т. е. достаточно записать определение и проявить волю к победе!
+  
+$(\Leftarrow)$ По Гейне.
+\end{proof}
+\begin{remark}
+Теорема записана для отображений в терминах окрестностей, для последовательностей утверждение тривиальнее в силу полноты образа отображения.
+\end{remark}
+
+\newpage
+\subsection{Теорема о пределе монотонной функции}
+\begin{theorem}
+Пусть $f: D \subset \R \to \R$ и монотонная, $a$ {---} предельная точка, $D_1 = D \cup (-\infty; a)$ тогда:
+\begin{enumerate}
+    \item $f$ {---} возрастает и ограничено сверху на $D_1 \Rightarrow \exists$ предел {---} $f(x - a)$
+    \item $f$ {---} убывает и ограничено снизу на $D_1 \Rightarrow \exists$ предел {---} $f(x - a)$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Положим $A := \underset{x \in D_1}{sup}f(x)$. Осталось проверить $f(x) \to A \in \R$.
+  
+По техническому определению супремума $\forall \varepsilon > 0 \ \exists x_1 \in D_1: A - \varepsilon < f(x_1) \leq A$. Берём $\delta = a - x_1 \Rightarrow \forall x \in D_1: a - \delta < x < a \Rightarrow x_1 < x < a$ отсюда в силу монотонности $A - \varepsilon < f(x_1) \leq f(x) \leq A$
+\end{proof}
+
+\newpage
+\subsection{Теорема о замене на эквивалентную при вычислении пределов. Таблица эквивалентных}
+\begin{theorem*}
+Пусть $X$ {---} м. п, $f, \widehat{f}, g, \widehat{g}: D \subset X \rightarrow \R (\C)$, $x_0$ {---} предельная точка $D$, $f(x) \sim \widehat{f}(x)$, $g(x) \sim \widehat{g}(x)$ при $x \to x_0$. Тогда справедливы следующие утверждения:
+\begin{enumerate}
+    \item \[ \lim_{x\to x_0}{f(x)g(x)} = \lim_{x \to x_0}{\widehat{f}(x)\widehat{g}(x)} \]
+    \item Если $x_0$ {---} предельная точка области определения $\displaystyle \frac{f}{g}$, $g(x) \neq 0$ и $\widehat{g}(x) \neq 0$, то
+    \[ \lim_{x\to x_0}{\frac{f(x)}{g(x)}} = \lim_{x\to x_0}{\frac{\widehat{f}(x)}{\widehat{g}(x)}} \]
+\end{enumerate}
+\end{theorem*}
+\begin{proof}Доказывается, раскладывая обе функции по определению эквивалентных функци.
+\end{proof}
+
+\newpage
+\subsection{Теорема единственности асимптотического разложения}
+\begin{theorem*}
+Пусть $f, g_k: D \subset X \rightarrow \R$, $x_0$ {---} предельная точка $D$, $\forall k \ g_{k + 1} = o(g_k)$, $\exists U(x_0) \ \forall k \ g_k \neq 0$ для $x \in \dot U(x_0) \cap D$. Если
+$$f(x) = \sum_{k = 0}^{n}c_kg_k + o(g_n)$$
+$$f(x) = \sum_{k = 0}^{n}d_kg_k + o(g_n)$$
+  
+Тогда $\forall k \ c_k = d_k$.
+\end{theorem*}
+\begin{proof}
+Возьмём первый индекс, на котором соответсвующие коэффиценты различаются и обозначим его за $m$, далее вычтем одно выражение из другого:
+$$0 = (c_m - d_m)g_m + \sum_{k = m + 1}^{n}{(c_k - d_k)g_k} + o(g_n) = (c_m - d_m)g_m + o(g_m) \Rightarrow 0 = (c_m - d_m) + \frac{o(g_m)}{g_m}$$
+  
+Отсюда, используя предельный переход, получаем, что такого индекса не существует, а значит все коэффиценты совпадают.
+\end{proof}
+
+\newpage
+\subsection{Арифметические свойства непрерывных отображений, теорема о стабилизация знака}
+
+\begin{theorem} (Арифметические свойсвта непрерывных отображений)
+Пусть $f, g: D \subset X \rightarrow Y$ (нормаированное пространство), $x_0 \in D$, $\lambda: D \rightarrow \R$, $f, g, \lambda$ {---} непрерывны в $x_0$. Тогда $f \pm g, \lambda f, ||f||$ {---} непрерывны в $x_0$.
+\end{theorem} 
+\begin{remark}
+Если к тому же $\displaystyle g(x_0) \neq 0 \Rightarrow \frac{f(x)}{g(x)}$ {---} непрерывна в $x_0$.
+\end{remark}
+\begin{proof}
+Если $x_0$ является изолированной точкой $D$, то всё выполняется, в противном случае пользуемся арифметическими свойсвтами предела и получаем аналогичный результат.
+\end{proof}
+
+\begin{theorem} (О стабилизации знака)
+Пусть $f: D \subset X \rightarrow \R$, $x_0 \in D$, $f$ {---} непрерывна в $x_0$ и $f(x_0) \neq 0$. Тогда $\exists U(x_0): \forall x \in U(x_0) \ \operatorname{sign}(x) = \operatorname{sign}(x_0)$ 
+\end{theorem}
+\begin{proof}
+Тривиально по определению предела.
+\end{proof}

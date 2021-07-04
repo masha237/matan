@@ -1,0 +1,181 @@
+\newpage
+\rhead{Зайцев}
+\subsection{Теорема об арифметических свойствах предела последовательности в нормированном пространстве и в $\R$} %1:07(5-6)
+  
+\begin{theorem*}{Об арифметических свойствах предела последовательности в нормированном пространстве.} 
+
+    Пусть даны:
+  
+    $(X, ||\cdot||)$ --- нормированное пространство
+    
+    $(x_n), (y_n)$ --- последовательности элементов $X$
+    
+    $\lambda_n$ --- последовательность скаляров    $x_n\rightarrow x, y_n\rightarrow y, \lambda_n\rightarrow \lambda, x \in X, y \in X, \lambda \in \R(\C)$
+    
+    Тогда утверждается нескольство свойств:
+    \begin{enumerate}
+    \item $x_n \pm y_n \rightarrow x \pm y$
+    \item $\lambda_n x_n \rightarrow \lambda x$
+    \item $||x_n|| \rightarrow ||x||$
+    \end{enumerate}
+\end{theorem*}
+
+\begin{proof} $ $
+\begin{enumerate}
+\item $\forall \varepsilon > 0$\\
+$\exists N_1 \ \forall n > N_1 \quad ||x_n - x|| < \frac{\varepsilon}{2}$\\
+$\exists N_2 \ \forall n > N_2 \quad ||y_n - y|| < \frac{\varepsilon}{2}$\\
+Тогда при $n > max(N_1, N_2)$ выполняется\\
+$||x_n + y_n - (x + y)|| \leq ||x_n - x|| + ||y_n - y|| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$
+\item $||\lambda_n x_n - \lambda x|| = ||(\lambda_n x_n - \lambda_n x) + (\lambda_n x - \lambda x)|| \leq ||\lambda_n (x_n - x)|| + ||(\lambda_n - \lambda) x|| = |\lambda_n|\cdot ||x_n - x|| + |\lambda_n - \lambda|\cdot ||x||$\\
+$|\lambda_n|$ --- ограничено\\
+$||x_n - x||$ --- бесконечно малое\\
+$|\lambda_n - \lambda|$ --- бесконечно малое\\
+$||x||$ --- ограничено\\
+б.м. $\cdot$ огр. + огр. $\cdot$ б.м. $\Rightarrow$ все выражение бесконечно малое по теореме о бесконечно малой последовательности (пункт 1.7)
+\item $\Big|||x_n|| - ||x||\Big| \leq ||x_n - x|| \rightarrow 0$
+\end{enumerate}
+\end{proof}
+\textbf{Арифметические свойства предела в $\R$}\\
+$(x_n), (y_n)$ --- вещественные последовательности\\
+$x_n\rightarrow x, y_n\rightarrow y, x \in \R, y \in \R$\\
+Тогда утверждается нескольство свойств:
+\begin{enumerate}
+\item $x_n \pm y_n \rightarrow x \pm y$
+\item $x_n y_n \rightarrow x y$
+\item $|x_n| \rightarrow |x|$
+\item Если $y \neq 0$ и $\forall n \ y_n \neq 0$ то $\frac{x_n}{y_n} \rightarrow \frac{x}{y}$
+\end{enumerate}
+$\R$ --- нормированное пространство, следовательно, 1-3 --- доказаны\\
+Доказательство 4:\\
+Заметим $\frac{x_n}{y_n} = x_n \cdot \frac{1}{y_n}$\\
+Достаточно проверить $\frac{1}{y_n} \rightarrow \frac{1}{y}$ (далее по свойству 2)\\
+$|\frac{1}{y_n} - \frac{1}{y}| = |y_n - y|\cdot |\frac{1}{y}| \cdot |\frac{1}{y_n}|$\\
+$|y_n - y|$ --- бесконечно малое\\
+$|\frac{1}{y}|$ --- ограничено\\
+Докажем, что $|\frac{1}{y_n}|$ --- ограничено\\
+$y_n \rightarrow y \neq 0$\\
+Для $\varepsilon = |y| \cdot \frac{1}{2}\quad \exists N \ \forall n > N$\\
+Для случая $y > 0$\\
+$\frac{y}{2} < y_n < \frac{3}{2}y$\\
+$\frac{2}{3y} < \frac{1}{y_n} < \frac{2}{y}$\\
+В общем случае $|\frac{2}{3y}| < |\frac{1}{y_n}| < |\frac{2}{y}|$\\
+Тогда число $M = max(\frac{1}{|y_1|}, \frac{1}{|y_2|} ... \frac{1}{|y_N|}, \frac{2}{|y|})+1$ --- верхняя граница последовательности $\frac{1}{y_n}$, т. е. $\forall n \in \N \ 0 \leq |\frac{1}{y_n}| \leq M$, следовательно, $\abs{\frac{1}{y_n}}$ ограничена.\\
+Из этого следует, что $|\frac{1}{y_n} - \frac{1}{y}| = |y_n - y|\cdot |\frac{1}{y}| \cdot |\frac{1}{y_n}| \longrightarrow 0$, следвательно, $\frac{1}{y_n} \rightarrow \frac{1}{y}$, что и требовалось проверить.\\
+
+\newpage
+\subsection{Неравенство Коши-Буняковского в линейном пространстве, норма, порожденная скалярным произведением}
+ %1:47(5-6)
+ \textbf{Неравенство Коши-Буняковского в линейном пространстве}\\
+$\forall x,y \ \ |\scalar{x,y}|^2 \leq \scalar{x,x}\scalar{y,y}$ --- нер-во Коши-Буняковского в линейном пространстве\\
+Доказательство:\\
+$0 \leq \scalar{x+ty,x+ty} = \scalar{x,x} + t \scalar{y,x} + \overline{t} \scalar{x,y} + t \cdot \overline{t}\scalar{y,y}$ по свойствам скалярного произведения.\\
+Подставим $t = \frac{-\scalar{x,y}}{\scalar{y,y}}$ (при $y=0$ изначальное неравенство тривиально, рассматриваем $y \neq 0$)\\
+$\scalar{x,x} - \frac{\scalar{x,y}\scalar{y,x}}{\scalar{y,y}} - \frac{\overline{\scalar{x,y}}\scalar{x,y}}{\scalar{y,y}} + \frac{\scalar{x,y}\scalar{y,x}}{\scalar{y,y}} = \scalar{x,x} - \frac{|\scalar{x,y}|^2}{\scalar{y,y}} \geq 0$ (пояснение: $\overline{\scalar{x,y}} = \scalar{y,x}$ и $\overline{\scalar{x,y}}\scalar{x,y} = |\scalar{x,y}|^2$)\\
+Преобразуя финальное неравенство можно получить исходное $\Rightarrow$ доказано.\\
+Пример:\\%возможно тут какая-то лажа
+$\scalar{x,y} = x_1 y_1 + x_2 y_2 + ... + x_n y_n$\\
+$(x_1 y_1 + x_2 y_2 + ... + x_n y_n)^2 \leq (x_1^2 + x_2^2 + ... + x_n^2)\cdot(y_1^2 + y_2^2 + ... + y_n^2)$\\
+$\Leftrightarrow|x_1 y_1 + x_2 y_2 + ... + x_n y_n| \leq \sqrt{x_1^2 + x_2^2 + ... + x_n^2}\cdot \sqrt{y_1^2 + y_2^2 + ... + y_n^2}$\\
+\textbf{Норма, порожденная скалярным произведением}\\
+$X$ --- линейное пространство со скалярным произведением\\
+Тогда функция $\rho(x) := \sqrt{\scalar{x,x}}$ - норма в $X$\\
+Свойства нормы:
+\begin{enumerate}
+\item $\rho(x) \geq 0 \qquad \rho(x) = 0 \leftrightarrow x = 0$
+\item $\rho(\alpha x) = |\alpha| \rho(x)$\\
+Доказательство: $\rho(\alpha x) = \sqrt{\scalar{\alpha x, \alpha x}} = \sqrt{\alpha \overline{\alpha} \scalar{x,x}} = |\alpha| \rho(x)$
+\item $\rho(x+y) \leq \rho(x) + \rho(y)$\\
+Доказательство:\\
+Возведем обе части в квадрат\\
+$\scalar{x+y,x+y} \leq_? \scalar{x,x} + \scalar{y,y} + 2\sqrt{\scalar{x,x}\scalar{y,y}}$\\
+Используем часть из доказательства неравенства Коши-Буняковского\\
+$\scalar{x,y} + \scalar{y,x} + \scalar{x,x} + \scalar{y,y} \leq_? \scalar{x,x} + \scalar{y,y} + 2\sqrt{\scalar{x,x}\scalar{y,y}}$\\
+Сокращаем\\
+$\scalar{x,y} + \scalar{y,x} \leq_? 2\sqrt{\scalar{x,x}\scalar{y,y}}$\\
+Верно по неравенству Коши-Буняковского\\
+$2\operatorname{Re}\scalar{x,y} \leq 2 |\scalar{x,y}|  \leq 2\sqrt{\scalar{x,x}\scalar{y,y}}$
+\end{enumerate}
+
+
+\newpage
+\subsection{Леммы о непрерывности скалярного произведения и покоординатной сходимости в $\R^n$} %2:04(5-6)
+\textbf{Лемма о непрерывности скалярного произведения}\\
+$X$ - пространство со скалярным произведением\\
+Зададим с помощью скалярного произведения норму на $X$\\
+$x_n\rightarrow x, y_n\rightarrow y, x \in X, y \in X$\\
+Тогда $\scalar{x_n,y_n} \rightarrow \scalar{x,y}$\\
+Доказательство\\
+$|\scalar{x_n,y_n} - \scalar{x,y}| = |\scalar{x_n,y_n} - \scalar{x_n,y} + \scalar{x_n,y} - \scalar{x,y}| \leq |\scalar{x_n,y_n} - \scalar{x_n,y}| + |\scalar{x_n,y} - \scalar{x,y}| = 
+|\scalar{x_n,y_n - y}| + |\scalar{x_n - x,y}| \leq \sqrt{\scalar{x_n, x_n}}\sqrt{\scalar{y_n - y, y_n - y}} + \sqrt{\scalar{x_n - x, x_n - x}}\sqrt{\scalar{y, y}} \leq ||x_n||\cdot||y_n - y|| + ||x_n - x||\cdot||y||$ (согласно неравенству Коши-Буняковского (взять под корень) и тому факту, что норма задана скалярным произведением)\\
+$||x_n||$ --- ограничено\\ % убрать значки нормы или нет?
+$||y_n - y||$ --- бесконечно малое\\
+$||x_n - x||$ --- бесконечно малое\\
+$||y||$ --- ограничено\\
+$\Rightarrow ||x_n||\cdot||y_n - y|| + ||x_n - x||\cdot||y|| \rightarrow 0$\\
+\newline
+\textbf{Лемма о покоординатной сходимости в $\R^n$}\\
+Будем нумеровать рисуя индекс последовательности     сверху\\
+$(x^{(n)})$ --- последовательность векторов из $\R^m$\\
+$(x^{(10)}) = (x^{(10)}_1, x^{(10)}_2, ..., x^{(10)}_m) \in \R^m$ --- координаты этого вектора\\
+\textbf{Собственно сама лемма}\\
+В качестве нормы используется Евклидова норма\\
+Если $x^{(n)}$ --- последовательность векторов в $\R^m$, тогда эквивалентны два утверждения:\\
+1) $x^{(n)} \rightarrow a$ (по Евклидовой норме)\\
+2) $\forall k \in \{1,2,\ ...\ m\} \quad x^{(n)}_k \xrightarrow[n\to\infty]{} a_k$\\
+Доказательство:
+\begin{itemize}
+\item $1 \Rightarrow 2$\\
+Берём сумму по Евклидовой норме, в сумме есть в том числе и $k$-тый элемент $\Rightarrow$ имеет место неравенство, от чего из условия следует покоординатная сходимость: \\
+$|x^{(n)}_k - a_k| \leq \sqrt{\sum_{i=1}^m |x^{(n)}_i - a_i|^2} = ||x^{(n)} - a|| \rightarrow 0$\\
+Следовательно $|x^{(n)}_k - a_k| \rightarrow 0 \Rightarrow \forall k \in \{1,2,\ ...\ m\} \quad x^{(n)}_k \xrightarrow[n\to\infty]{} a_k$.
+\item $2 \Rightarrow 1$\\
+$\displaystyle ||x^{(n)}-a|| \leq \sqrt{m} \cdot \max_{k\in[1\dots m]}|x^{(n)}_k - a_k| \rightarrow 0$\\
+$\sqrt{\sum_{i=1}^m |x^{(n)}_i - a_i|^2} \leq \sqrt{m \cdot \text{(максимальное слагаемое)}^2}$\\
+Следовательно $||x^{(n)}-a|| \rightarrow 0 \Rightarrow x^{(n)} \rightarrow a$
+\end{itemize}
+
+\newpage
+\subsection{Аксиома Архимеда. Плотность множества рациональных чисел в $\mathbb R$} %1:14(3-4), 0:48(5-6)
+\textbf{Аксиома Архимеда}\\
+$\forall x,y\in \R, x>0, y>0 \ \ \exists n \in \N \ \ : nx>y$\\
+\newline
+\textbf{Сомнительное упарывание от Кохася}\\
+было скрыто, см. исходник.\\
+ 
+% Введем поле $R(x)=\{ \frac{p(x)}{q(x)}, p,q\text{ --- многочлены с вещественными коэффициентами} \}\\
+% q\text{ --- ненулевой многочлен}$\\
+% $\frac{p_1}{q_1}=\frac{p_2}{q_2}$ если $\exists T>0 \ \forall x>T \ \frac{p_1(x)}{q_1(x)} = \frac{p_2(x)}{q_2(x)}$\\
+% $\frac{p_1}{q_1}<\frac{p_2}{q_2}$ если $\exists T>0 \ \forall x > T \ \frac{p_1(x)}{q_1(x)} < \frac{p_2(x)}{q_2(x)}$\\
+% Все 5 аксиом выполняются --- упорядоченное поле?\\
+% Но все ломается из-за аксиомы Архимеда\\ %мем про ванну
+% Берем первый элемент $\frac{1}{1}$, второй $\frac{x}{1}$, оба положительные $\Rightarrow \ n>x$ --- неверно, так как при $T = n \: \forall x > T : x > n \Rightarrow \frac{x}{1} > \frac{n}{1}$\\
+% \newline
+\textbf{Плотность множества рациональных чисел в $\R$}\\
+Множество $A \subset \R$ --- всюду плотно в $\R$, если\\
+$\forall x,y, \ x<y \ (x,y) \cap A \neq \varnothing$ --- в любом промежутке имеются точки из множества $A$\\
+\newline
+\textbf{$\Q$ плотно в $\R$}\\
+Доказательство:\\
+$\forall x,y \ x<y \ ? \exists \ q \in (x,y)$ --- ищем такое $q$\\
+Будем рассматривать только случай $x,y>0$ тк, если $x,y < 0$, то это симметрично нашему случаю, а если $x<0, y>0$ то просто возьмем новый $x > 0, x < y$\\
+Возьмем $n>\frac{1}{y-x}$ --- возможно по аксиоме Архимеда\\
+$\frac{1}{n}<y-x$\\
+Возьмем $q := \frac{[nx]+1}{n}$\\
+Проверяем\\
+$q\leq \frac{nx+1}{n} = x+\frac{1}{n} < x+(y-x) = y$\\
+$q > \frac{(nx-1)+1}{n} = x$\\
+$x < q < y \Rightarrow q \in (x, y)$ --- мы доказали, что $\forall x,y, \ x<y \ \exists \ q \in (x,y)$.
+
+\newpage
+\subsection{Неравенство Бернулли (Якоба)} %0:29(5-6)
+Лайт-версия: при $x > -1 \quad \forall n \in \N \quad (1+x)^n \geq 1 + nx$\\
+Продвинутая версия: при $x > 0 \quad \forall n \in \N \quad (1+x)^n \geq 1 + nx + \frac{n(n+1)}{2}x^2$\\
+(Продвинутую версию Кохась не доказывал)\\
+Доказательство лайт-версии:\\
+По индукции\\
+База: $n=1 \quad 1+x\geq1+x$ --- верно\\
+Переход:\\
+Дано: $(1+x)^n \geq 1 + nx$\\
+Доказать: $(1+x)^{n+1} \geq 1 + (n+1)x$\\
+$(1+x)^{n+1} = (1+x)(1+x)^{n} \geq (1+x)(1+nx) = 1+x+nx+nx^2 \geq 1+(n+1)x \iff (1+x)^{n+1} \geq 1+(n+1)x$ --- чтд

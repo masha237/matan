@@ -1,0 +1,213 @@
+\newpage
+\rhead{Крайнов}
+\subsection{Теорема о существовании супремума}
+\begin{theorem*}
+    Если $X$ --- непустое подмножество $\mathbb{R}$, ограниченное сверху, то $\exists \ supX < \infty$
+\end{theorem*}
+\begin{proof}$ $
+    Строим систему вложенных отрезков $[a_i, b_i]$. Берём $a_1 \in E$, берём $b_1$ {---} любую верхнюю границу множества $E$ верхних границ:
+    
+    Найдём следующий вложенный отрезок (бинпоиском).
+    
+    Для этого возьмём центр - $c_i = \frac{a_i + b_i}{2}$.
+    Если не существует $x \in X$, что $c_i <= x$ (справа нет элементов множества), то мы должны сместить $a_{i+1}$ в $c_i$.
+    Если такой $x \in X$ существует и он $x <= c_i$, то мы должны сместить $b_{i+1}$ в $c_i$.
+    
+    Таким образом мы каждый раз уменьшаем наш отрезок и все отрезки вложенные.
+    
+    При этом на каждом шагу <<алгоритма>> поддерживается требуемый инвариант, наш искомый супремум находится внутри нашего отрезка, т.к. если мы отрезаем левый отрезок, то в нём нет потенциальных супремумов, а если мы отрезаем правый отрезок, то мы берём центр - верхнюю точку, значит потенциальный супремум остаётся в наших отрезках, т. е. результируещее единственное число $c$ будет являться супремумом.
+    
+    % Пусть $E$ --- множество всех верхних границ множества $X$. Далее большая буква означает любой элемент из соответствующего множества (то есть $A$ --- $\forall a \in A$)
+    
+    % Знаем, что $X \leq E$. Воспользуемся аксиомой непрерывности и найдем $c \in \mathbb{R}$ такое, что 
+    % $X \leq c \leq E$.
+    
+    % Получили $c$, которое $\geq$ любого элемента $X$, то есть верхняя граница $X$, и $\leq$ любого элемента $E$, то есть наименьшая из верхних границ.
+    
+    % Значит, по определению, $c = supX < \infty$, то есть $\exists \ supX < \infty$, что и требовалось доказать.
+\end{proof}
+\begin{remark}
+    Возможно, Кохась потребует доказать теорему о существовании infimum, хотя ее нет в списке вопросов. По сути, это та же теорема, что и о существовании supremum. Вам нужно просто поменять знаки в неравенствах и заявить о победе :)
+\end{remark}
+\newpage
+\subsection{Лемма о свойствах супремума}
+    1. $D \subset E \subset \mathbb{R} \Rightarrow supD \leq supE$
+    \newline
+    \newline
+    Доказательство:
+    \newline
+    Заметим, что $supE$ --- верхняя граница множества $D$ (так как это верхняя граница множества $E$, содержащего в себе $D$). Тогда $supD \leq supE$, что и требовалось доказать.
+    \newline
+    \newline
+    2. $\forall \lambda \in \mathbb{R}: \ \lambda > 0$ выполняется $sup(\lambda E) = \lambda supE$
+    \newline
+    \newline
+    Доказательство:
+    \newline
+    $\forall x \in E$ верно $x \leq supE$. Значит $\lambda x \leq \lambda supE$. Отсюда непосредственно следует, что $sup(\lambda E) = \lambda supE$, что и требовалось доказать.
+    \newline
+    \newline
+    3. $sup(-1 \cdot E) = -1 \cdot infE$
+    \newline
+    \newline
+    Доказательство:
+    \newline
+    Найдем $M: \ \forall x \in (-E) : \ x \leq M$. Тогда $\forall -x \in E : \ -x \geq -M$. Значит $-M$ --- нижняя граница $E$. Тогда $-sup(-E) = infE \Rightarrow sup(-E) = -infE$, что и требовалось доказать.
+    \newline
+    \newline
+    Примечание:
+    \newline
+    Первое свойство верно для infimum со знаком $\geq$  .
+    \newline
+    Второе свойство верно для infimum.
+    
+\newpage
+%епра <-- оно было здесь (может кому-то нужно)
+\subsection{Теорема о пределе монотонной последовательности (Теорема Виерштрасса)}
+    Если $x_n$ монотонна и ограниченна, то существует конечный $\lim_{n\to\infty}x_n$.
+    \newline
+    \newline
+    Доказательство (рассмотрим случай для возрастающей ограниченной сверху последовательности):
+    \newline
+    Рассмотрим $M = sup(x_n)$. Вспомним техническое определение супремума:
+    \newline
+    $\forall \epsilon > 0 \ \exists N \in \mathbb{N} : \ M - \epsilon < x_n$.
+    \newline
+    То, что последовательность возрастающая, означает, что $\forall n > N : \ x_N \leq x_n$
+    \newline
+    Воспользуемся двумя неравенствами и свойством supremum сразу:
+    \newline
+    $\forall \epsilon > 0 \ \exists N \in \mathbb{N} : \ \forall n > N : \ M - \epsilon < x_N \leq x_n \leq M < M + \epsilon$
+    \newline
+    Получили, что в эпсилон-окрестности точки $M$ лежит бесконечно много элементов из последовательности $x_n$. Значит, $\lim_{n\to\infty}x_n = M = sup(x_n)$. То есть существует конечный предел, что и требовалось доказать.
+    \newline
+    \newline
+    Случай с убывающей последовательностью, ограниченной снизу, доказывается аналогично через infinum.
+    \newline
+    Предел возрастающей последовательности, неограниченной сверху, равен, очевидно, $+\infty$. Аналогично для убывающей, неограниченной снизу.
+    
+\newpage
+\subsection{Определение числа $e$, соответствующий замечательный предел}
+    Рассмотрим последовательности $x_n = (1 + \frac{1}{n})^n$ и $y_n = (1 + \frac{1}{n})^{n+1}$. Утверждается, что их пределы совпадают и равны $e$.
+    \newline
+    \newline
+    Доказательство:
+    \newline
+    \newline
+    Очевидно, что $y_n \geq 1$
+    \newline
+    Заметим, что $y_n$ --- убывающая последовательность, так как:
+    \newline
+    $${y_{n-1} \over y_n} = {({n \over n-1})^n \over ({n+1 \over n})^{n+1}} = (1 + {1 \over n^2-1})^{n+1} \cdot {n-1 \over n} \geq$$
+    \newline
+    (По неравенству Бернулли)
+    \newline
+    $$(1 + {n+1 \over n^2-1}) \cdot ({n-1 \over n}) = (1 + {1 \over n-1}) \cdot ({n-1 \over n}) = {n-1 \over n} + {1 \over n} = 1$$
+    \newline
+    Получили, что $y_n$ --- убывающая последовательность, ограниченная снизу, а значит имеет предел.
+    \newline
+    \newline
+    Заметим, что $x_n$ --- возрастающая последовательность, так как:
+    \newline
+    $${x_{n+1} \over x_n} = {({n+2 \over n+1})^{n+1} \over ({n+1 \over n})^n} = (1 + {1 \over n+1}) \cdot (1 - {1 \over (n+1)^2}) \geq$$
+    \newline
+    (По неравенству Бернулли)
+    \newline
+    $$(1 + {1 \over n+1}) \cdot (1 - {n \over (n+1)^2}) = 1 - {n \over (n+1)^2} + {1 \over n+1} - {n \over (n+1)^3} = 1 + {1 \over (n+1)^3} > 1$$
+    \newline
+    Покажем, что $x_n$ ограничено сверху. Сделаем это методом от противного:
+    \newline
+    Пусть $x_n$ не ограничена сверху. Значит $\forall c \in \mathbb{R} \ \exists N \in \mathbb{N} : \ \forall n > N \ x_n > c$
+    \newline
+    Возьмем $c = 1000$. Тогда неравенство $(1 + {1 \over n})^n > 1000$ имеет бесконечно много решений.
+    \newline
+    $$1 + {1 \over n} > \sqrt[n]{1000} = (1 + 999)^{1 \over n}$$
+    \newline
+    (По неравенству Бернулли)
+    \newline
+    $$1 + {1 \over n} > 1 + {999 \over n}$$
+    \newline
+    $${998 \over n} < 0$$
+    \newline
+    У неравенства нет решений. Получили противоречие. Значит $x_n$ ограничена сверху. $x_n$ также возрастает, а значит имеет предел.
+    \newline
+    \newline
+    Путь $\lim{x_n} = e$. Покажем, что $\lim{y_n} = e$:
+    \newline
+    \newline
+    $$\lim{y_n} = \lim{(x_n \cdot (1 + {1 \over n}))} = e \cdot 1 = e$$
+    \newline
+    \newline
+    Получили, что две этих последовательности имеют одинаковый замечательный предел, равный $e$.
+    
+    
+\newpage
+ \subsection{Теорема об открытых и замкнутых множествах в пространстве и в подпространстве}
+    Пусть $X$ --- метрическое пространство, $Y \subset X$, $Y$ --- подпространство $X$ (имеет ту же метрику $\rho_y(y_1, y_2) = \rho_x(y_1, y_2)$), $D \subset Y \subset X$
+    \newline
+    \begin{theorem*}\ \\
+    \begin{enumerate}
+        \item $D$ --- открыто в пространстве $Y$ $\ \Leftrightarrow \ $ $\exists G$ --- открытое в $X$: $D = G \cap Y$
+        \item $D$ --- замкнуто в пространстве $Y$ $\ \Leftrightarrow \ $ $\exists F$ --- замкнутое в $X$: $D = F \cap Y$
+    \end{enumerate}
+    (Заметим, что $\forall a \in Y, B^y(a, r) = B^x(a, r) \cap Y$)
+    \end{theorem*}
+    Доказательство:
+    \newline
+    1. \begin{itemize}
+        \item $\Rightarrow$
+        \newline
+        \newline
+        $D$ открыто в $Y$. Значит $\forall a \in D \ \exists r_a : B^y(a, r_a) \subset D$
+        \newline
+        Пусть $G := \bigcup\limits_{a \in D} B^x(a, r_a)$ --- открыто в $X$ (объединение открытых множеств)
+        \newline
+        Тогда:
+        \newline
+        $$G \cap Y = (\bigcup\limits_{a \in D} B^x(a, r_a)) \cap Y = \bigcup\limits_{a \in D} (B^x(a, r_a) \cap Y) = \bigcup\limits_{a \in D} B^y(a, r_a) = D$$
+        \newline
+        Получили, что $G \cap Y = D$, что и требовалось доказать.
+        \item $\Leftarrow$
+        \newline
+        \newline
+        $G$ --- открыто в $X$, $G \cap Y = D$.
+        \newline
+        Пусть $a \in D \Rightarrow a \in G \Rightarrow \exists r : B^x(a, r) \subset G$ (следует из того, что $G$ открыто в $X$)
+        \newline
+        Рассмотрим пересечение с $Y$:
+        \newline
+        $$\exists r : B^x(a, r) \subset G$$
+        $$\exists r : B^x(a, r) \cap Y \subset G \cap Y$$
+        $$\exists r : B^y(a, r) \subset G \cap Y$$
+        $$\exists r : B^y(a, r) \subset D$$
+        То есть $\forall a \in D \ \exists$окрестность $a$, также принадлежащая $D$. Значит $D$ --- открыто, что и требовалось доказать.
+    \end{itemize}
+    2. \begin{itemize}
+        \item $\Rightarrow$
+        \newline
+        \newline
+        Рассмотрим дополнение:
+        \newline
+        $D$ --- замкнуто в $Y \ \Rightarrow D^c = Y \backslash D$ --- открыто в $Y \Rightarrow \exists G$ --- открытое в $X : \ D^c = G \cap Y$ (по пункту 1)
+        \newline
+        Тогда $\exists F = G^c = X \backslash G$ --- замкнуто в $X$.
+        \newline
+        $D^c = G \cap Y \Rightarrow D = Y \setminus (G \cap Y) = (Y \setminus G) \cup (Y \setminus Y) = Y \setminus G = G^c \cap Y$.
+        \newline
+        Получили $D = F \cap Y$, что и требовалось доказать.
+        \item $\Leftarrow$
+        \newline
+        \newline
+        $\exists F$ --- замкнутое в $X$. $F^c = X \backslash F$ --- открыто в $X$
+        \newline
+        $F^c \cap Y$ --- открыто в $Y$
+        \newline
+        $Y \setminus (F^c \cap Y)$ --- замкнуто в $Y$
+        \newline
+        Применим закон Де-Моргана:
+        \newline
+        $Y \setminus (F^c \cap Y) = (Y \setminus F^c) \cup (Y \setminus Y) = Y \setminus F^c = Y \cap F = D$
+        \newline
+        Получили, что $F \cap Y = D$ --- замкнуто, что и требовалось доказать.
+        
+    \end{itemize}

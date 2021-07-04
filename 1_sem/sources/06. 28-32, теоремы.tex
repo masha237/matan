@@ -1,0 +1,135 @@
+\newpage
+\rhead{Утюжников}
+\subsection{Эквивалентность определений Гейне и Коши}
+
+1) Определение на $\varepsilon$-языке, или по Коши: $\forall \varepsilon > 0$ $\exists \delta > 0$ $\forall x \in D \setminus \{a\}$ : $\rho(x, a) < \delta$ $\rho(f(x), A) < \varepsilon$.
+
+2) Определение на языке последовательностей, или по Гейне: $\forall \{x_n\} : x_n \in D \setminus \{a\}$, $x_n \rightarrow a$ $f(x_n) \rightarrow A$.
+
+Теорема: определения предела отображения по Коши и по Гейне равносильны.
+
+Доказательство:
+
+Слева направо. Дано (1). \\
+Берём $x_n \rightarrow a$, $x_n \in D$, $x_n \neq a$. ?$f(x_n) \rightarrow A$. 
+
+$\forall \varepsilon > 0$ $\exists N$ $\forall n > N$ $\rho(f(x_n), A) < \varepsilon$.
+
+$\exists \delta > 0 \text{(из (1))}$, $x_n \rightarrow a$ $\Rightarrow$ $\exists N$ $\forall n > N$ $\rho(x_n, a) < \delta \Rightarrow \rho(f(x_n), A) < \varepsilon \text{(из (1))}$.
+
+Справа налево. Пусть $A$ - не есть предел по Коши:
+
+Тогда $\exists \varepsilon > 0$ $\forall \delta > 0$ $\exists x \in D$ $0 < \rho(x, a) < \delta$ $\rho(f(x), A) \geq \varepsilon$
+
+$\delta = 1$ $\exists x_1$ ... $\rho(f(x_1), A) \geq \varepsilon$
+
+$\delta = \frac{1}{2}$ $\exists x_2$ ... $\rho(f(x_2), A) \geq \varepsilon$
+
+$\delta = \frac{1}{n}$ $\exists x_n \in D$ $0 < \rho(x_n, a) < \frac{1}{n}$ :  $\rho(f(x_n), A) \geq \varepsilon$
+
+$x_n \in D$ $x_n \neq a$ $x_n \rightarrow a$ $\rho(f(x_n), A) \nrightarrow 0$, то есть $f(x_n) \nrightarrow A$. Противоречие.
+
+\newpage
+\subsection{Единственность предела, локальная ограниченность отображения, имеющего предел, теорема о стабилизации знака}
+
+Теорема: если $\lim\limits_{x \to a} f(x) = A$ и $\lim\limits_{x \to a} f(x) = B$, то $A = B$.
+
+Доказательство:
+
+По Гейне. По единственности предела последовательности $A = B$.
+
+Теорема: локальная ограниченность отображения, имеющего предел.
+
+Пусть $X$ и $Y$ - метрические пространства, $f: D \subset X \rightarrow Y$, $a$ - предельная точка $D$, $A \in Y$, $f(n) \rightarrow A$ при $x \rightarrow a$. Тогда $\exists V_a$ точки $a$, что $f$ ограничено в $V_a \bigcup D$.
+
+Доказательство:
+
+Для $\varepsilon = 1$: $\exists U_a$ $\forall x \in U_a \bigcap D$ $f(x) \in B(a, 1)$. Если $a \in D$ увеличим радиус шара до $R = \rho(f(x), A) + 1$. (*)
+
+Тогда $\forall x \in U_a \bigcap D$ $f(x) \in B(A, R)$.
+
+Теорема: о стабилизации знака: Дано (*). Тогда $\forall L \neq A (L \in Y)$ $\exists U_a$ $f(x) \neq L$ при $x \in U_a \bigcap D$.
+
+Доказательство:
+
+Берём $0 < \varepsilon < \rho(L, a)$ $\exists U_a$ $\forall U_a \bigcap D$: $\rho(f(x), A) < \varepsilon < \rho(L, a)$, то есть $f(x) \neq L$, $f(x) > 0$ (для $\R$).
+
+\newpage
+\subsection{Арифметические свойства предела отображений. Формулировка для R с чертой}
+
+% где упоминание того, что Y - нормированное пространство
+Теорема: об арифметических свойствах предела в $\R$. $X$ - метрическое пространство, $D \subset X$, $a$ - предельная точка $D$, $f, g: D \rightarrow Y$, $A, B \in Y$, $\lambda_0 \in \R$: $f(x) \rightarrow A$, $g(x) \rightarrow B$, $\lambda(x) \rightarrow \lambda_0$ при $x \rightarrow a$. 
+% это ещё что такое - что за следствие
+Тогда $\lambda: D \rightarrow \R$. 
+
+1) $\exists \lim\limits_{x \to a} f(x) \pm g(x) = A \pm B$.
+% а с новой строки сделать не судьба? про enumerate не знаешь?
+2) $\exists \lim\limits_{x \to a} \lambda(x)g(x) = \lambda_0 A$.
+3) $\exists \lim\limits_{x \to a} ||f(x)|| = ||A||$.
+4) Для $Y = \R$, если $B \neq 0$, то $\exists \lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{A}{B}$. 
+%  Компилятор ругался что нет команды \mathds{R}, я поменял на \R
+% аналогичная теорме верна для (...) - непонятно что это и откуда взялось (до бесконечностей)
+Замечание: аналогичная теорема верна для $Y = \R$ и/или $X = \R$. /возможно $a, A, B, \lambda_0 = \pm \infty$/. Тогда утверждения 1-4 верны, если правые части имеют смысл.
+
+% неплохо было бы доказать все пункты - мы это в конце концов для себя делаем
+Доказательство:
+
+3) $x_n \rightarrow a$, $x_n \neq a$, $x_n \in D$ ?$||f(x)|| \rightarrow ||A||$. Да, так как $f(x_n) \rightarrow A$ по Гейне.
+
+4) ? $\frac{f(x_n)}{g(x_n)} \rightarrow \frac{A}{B}$. $x_n \rightarrow a$, берём $U_a$ из
+% у тебя нет такого замечания
+замечания $\exists N$ $\forall n > N$ $x_n \in U_a$. % и что с того? доказательство где?
+
+\newpage
+\subsection{Принцип выбора Больцано--Вейерштрасса}
+
+\begin{theorem*}
+Из всякой ограниченной последовательности $\R^m$ можно извлечь сходящуюся подпоследовательность.
+\end{theorem*}
+\begin{proof}
+В силу ограниченности все члены последовательности принадлежат некоторому замкнутому кубу $I$. Поскольку $I$ компактен, из этой последовательности можно извлечь подпоследовательность, имеющую предел, принадлежащий $I$.
+\end{proof}
+
+\newpage
+\subsection{Сходимость в себе и ее свойства} % мб лучше употреблять термин "фундаментальная последовательность"? он, как мне кажется, лучше воспринимается
+
+% оформление отвратительное - читать больно
+
+\begin{lemma}
+Сходящаяся в себе последовательность ограничена. 
+\end{lemma}
+\begin{proof}
+$\{x_n\}$ сходится в себе, тогда $\exists N$, что $\forall n, l > N$ будет $\rho(x_n, x_l) < 1$. То есть $\rho(x_n, x_{N+1}) < 1$. 
+  
+Пусть $b \in X$. Тогда по неравенству треугольника $\rho(x_n, b) < 1 + \rho(x_{N+1}, b)$. 
+  
+Пусть $R = max\{\rho(x_1, b), \ldots, \rho(x_{n+1}, b), 1 + \rho(x_{N+1}, b)\}$, тогда $\rho(x_n, b) \leq R$ для всех номеров $n$.
+% вместо b проще использовать x_{N + 1}, допиши вывод про шар
+\end{proof}
+\begin{lemma} Если у сходящейся в себе последовательности есть сходящаяся подпоследовательность, то сама последовательность сходится.
+\end{lemma}
+\begin{proof}
+Пусть $\{x_n\}$ сходится в себе и $\exists x_{n_k} \rightarrow a$. 
+  
+Возьмём $\varepsilon > 0$. По определению предела $\exists K$ $\forall k > K$: $\rho(x_{n_k}, a) < \frac{\varepsilon}{2}$, а по определению сходимости в себе $\exists N$ $\forall n, l > N$: $\rho(x_n, x_l) < \frac{\varepsilon}{2}$. 
+% но ты не показал, а наоброт - опроверг
+  
+Покажем, что найденное $N$ - требуемое для $\varepsilon$ из определения предела. Пусть $n > N$. Положим $M = max\{N + 1, K + 1\}$, тогда 
+% почему? где замечание Кохася об этом?
+$n_M \geq n_{N+1} > n_N \geq N$ и, аналогично $n_M > K$. Следовательно, $\rho(x_n, a) \leq \rho(x_n, x_{n_M}) + \rho(x_{n_M}, a) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$. 
+  
+В силу произвольности $\varepsilon$ это означает, что $x_n \rightarrow a$.
+\end{proof}
+
+\begin{theorem}Во всяком метрическом пространстве любая сходящаяся последовательность сходится в себе.
+\end{theorem}
+
+\begin{proof}
+Обозначим $\lim x_n = a$. Тогда $\exists N$ $\forall n > N$: $\rho(x_n, a) < \frac{\varepsilon}{2}$. Тогда $\forall n, m > N$: $\rho(x_n, x_m) \leq \rho(x_n, a) + \rho(a, x_m) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$. В силу произвольности $\varepsilon$ это означает, что $\{x_n\}$ сходится в себе.
+\end{proof}
+
+\begin{theorem}В $R^m$ любая сходящаяся в себе последовательность сходится.
+\end{theorem}
+\begin{proof}
+Пусть $\{x^{(n)}\}$ - сходящаяся в себе последовательность в $\R^m$. По пункту 1 леммы она ограничена. По принципу выбора Больцано-Вейерштрасса из неё можно извлечь сходящуюся подпоследовательность, а тогда по пункту 2 леммы она сама сходится.
+\end{proof}

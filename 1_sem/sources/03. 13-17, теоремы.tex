@@ -1,0 +1,204 @@
+\newpage
+\rhead{Бессонницын}
+\subsection{Открытость открытого шара}
+    Определения:
+    
+        $a-$ внутреннаяя точка $D$
+        $\Rightarrow\\$
+        $$\exists \ \ U(a) : \ \ U(a) \subset D(a)$$
+        $$\exists \ \ r : \ \ B(a, r) \subset D(a)$$
+        
+        $a-$ не внутреннаяя точка $D$
+        $\Rightarrow\\$
+        $$\forall \ \ U(a) \ \ \exists \ \ y \notin D : \ \  y \in U(a)$$
+        
+        $D-$ открытое множество, если все его точки внутренние.
+        
+        $X-$ открыто
+        
+        $\oslash$ - открыто
+        \begin{theorem*}
+            Открытый шар {---} открытое множество
+        \end{theorem*}
+        \begin{proof}
+        $B(a,r) = \{x \in X : q(x, a) < r\}$
+        
+        $\forall b \in B(a,r) : B(b, r - q(a, b)) \subset B(a, r)$ {---} это $r - q(a, b)$ по определению, т. к. $b \in B(a,r)$, докажем этот факт:
+        
+        $x \in B(b, r - q(a, b)) \Rightarrow$
+        
+        $q(x, b) < r - q(a, b)$
+        
+        $q(a, b) + q(b, x) < r$
+        
+        $q(a, x) \leqslant q(a, b) + q(b, x) < r$
+        
+        $q(a, x) < r$
+        
+        Мы доказали, что $\forall b \in B(a,r) : B(b, r - q(a, b)) \subset B(a, r) \Rightarrow \exists B(b, r') \subset B(a, r)$, следовательно, все точки открытого шара --- внутренние, следовательно, открытый шар --- открытое множество.
+        \end{proof}
+\newpage
+\subsection{Теорема о свойствах открытых множеств}
+    $X-$ метрическое пространство
+    
+    $(G_{\alpha})_{\alpha \in A}-$ семейство открытых в $X$ множеств\\\\
+    \begin{theorem}
+        $\bigcup\limits_{\alpha \in A} G_{\alpha}-$ открыто в $X$
+    \end{theorem}
+    \begin{proof}
+        $x \in D = \bigcup\limits_{\alpha \in A} G_{\alpha}$
+        
+        $x - $ внутренняя точка?
+        
+        $\displaystyle \forall x \in \bigcup_{\alpha \in A} \ \ G_{\alpha} =>$
+        
+        $\exists d_{0} : x \in G_{d_{0}}=>$
+        
+        $\exists U(x) \subset G_{d_{0}}=>$
+        
+        Тогда $U(x) \subset \bigcup\limits_{\alpha \in A} \ \ G_{\alpha} = D \Rightarrow$ x --- внутрення точка $D \Rightarrow$ $D - $открыто
+    \end{proof}
+    \begin{theorem}
+        $A - $ конечное, тогда $\bigcap\limits_{\alpha \in A} G_{\alpha}-$ открыто в $X$
+    \end{theorem}
+    \begin{proof}
+        $D = \bigcap\limits_{\alpha \in A}G_{\alpha} = \bigcap\limits_{i = 1}^{n}G_{\alpha_i}-$ открытое?
+        
+        $x \in \bigcap\limits_{i = 1}^{n}G_{\alpha_i} \Rightarrow \forall i \in  \{1, 2, ... n\}$
+        
+        $x \in G_{\alpha_i}-$ открытое, следовательно
+        
+        $\exists B(x, r_{i}) \subset G_{\alpha_{i}}$
+        
+        Пусть $r_0 := \min\limits_{i = 1} ^ {n}(r_{i})$, тогда
+        
+        $\forall i : B(x, r_0) \subset  B(x, r_{i}) \Rightarrow$
+        
+        $\forall i : B(x, r_0) \subset  G_{\alpha_{i}} \Rightarrow$
+        
+        $\forall i : B(x, r_0) \subset  \bigcap\limits_{i = 1}^{n}G_{\alpha_i} \Rightarrow$
+        
+        $x-$ внутренняя точка, следовательно
+        
+        $\bigcap\limits_{i = 1}^{n}G_{\alpha}-$ открыто
+    \end{proof}
+
+\newpage
+\subsection{Теорема о связи открытых и замкнутых множеств, свойства замкнутых множеств}
+    \begin{theorem}{О связи открытых и замкнутых множеств:}
+            $X$ --- метрическое пространство; $D \subset X \Rightarrow$
+            
+            $D$ --- замкнуто $ \Leftrightarrow D^{c} = X \setminus D$ ---  открыто
+            
+            $D^{c}-$ дополнение $D$
+    \end{theorem}
+    \begin{proof}$ $\\
+    В ту сторону($\Rightarrow$):
+    
+        $D-$ замкнутое, $D^{c}-$открытое?
+        
+        $\forall x \in D^{c} : \  ? x-$внутренняя точка $D^{c}$
+        
+        $x \in D^{c} \Rightarrow  x \notin D$
+        
+        $x$ --- не предельная точка $D$ (т.к. все предельные точки $D$ в $D$) $\Rightarrow$
+        
+        $\exists U(x) : U(x) \cap D = \emptyset \Rightarrow$
+    
+        $U(x) \subset D^{c}$\\
+    В обратную сторону($\Leftarrow$):
+    
+        $D^{c}-$открытое, $D-$ замкнутое?
+        
+        $\forall x -$ предельная точка $D: ? x \in D$
+        
+        Если это не так, то $x \in D^{c} \Rightarrow$
+        
+        $\exists U(x) : U(x) \subset D^{c} \Rightarrow U(x) \cap D = \emptyset$
+        
+        Это противоречит тому, что $x$ - предельная точка $D$ $\Rightarrow$ противоречие $\Rightarrow D-$замкнуто.
+    \end{proof}
+    \begin{remark}
+        $A \subset X$, $A$ --- не открыто $\not \Rightarrow$ $A$ --- замкнуто!!!\\
+    \end{remark}
+    
+    
+    \begin{theorem}{О свойствах замкнутого множества}
+        
+        $X-$ метрическое пространство $(F_\alpha)_{\alpha \in A} - $ семейство замкнутых в $X$ множеств.
+    
+        1) $\bigcap\limits_{\alpha \in A}F_{\alpha}-$замкнуто в $X$
+        
+        2) $\bigcup\limits_{\alpha \in A}F_{\alpha}-$замкнуто в $X$($A-$конечно)\\
+    \end{theorem}
+    \begin{proof}
+        $D = \bigcap\limits_{\alpha \in A}F_{\alpha}$
+        
+        $D^{c} = X \setminus \bigcap\limits_{\alpha \in A}F_{\alpha} = $ (по законам де моргана)
+        $\bigcup\limits_{\alpha \in A}(X \setminus F_{\alpha}) = \bigcup\limits_{\alpha \in A}F_{\alpha}^{c}$ --- открыто
+        
+        $D^{c}$ --- открыто $\Rightarrow D$ --- замкнуто.
+        
+        Пункт 2 аналогично.
+    \end{proof}
+\newpage
+\subsection{Теорема об арифметических свойствах предела последовательности  (в $\bar\R$). Неопределенности.}
+\begin{theorem}
+      $(x_n), (y_n)$ --- вещественные последовательности: $a, b \in \bar\R \ \ x_n \to a \ \ y_n \to b$
+      
+     \begin{enumerate}
+         \item  $x_n \pm y_n \to a \pm b$
+         \item $x_n \cdot y_n \to a \cdot b$ ( $0\cdot \inf, \inf \cdot 0$ --- не определены)
+         \item Если $\forall n \ \ y_n \neq 0 \ \ b \neq 0$, то $\frac{x_n}{y_n} \to \frac{a}{b}$ при условии, что правые части имеют смысл.\\
+     \end{enumerate}
+\end{theorem}
+\fcolorbox{black}{yellow}{
+    \parbox{\textwidth}{
+    \begin{proof} $ $\\
+        $1) x_n \to a \in \mathbb {R}, y_n \to +\inf$
+        
+        $x_n + y_n \to +\inf$?
+        
+        $\forall \varepsilon > 0 \ \ \exists N_1 \forall n > N_1: a-\epsilon < x_n < a + \epsilon$
+        
+        $\forall E > 0 \ \ \exists N_2 \forall n > N_2: E < y_n$
+        
+        $N = max(N_1, N_2)$
+        
+        $\forall n > N: x_n + y_n > E + a - \epsilon$\\
+        
+        $3) x_n \to a \in \mathbb {R}, y_n \to +\inf$
+        
+        $\frac{x_n}{y_n} \to \frac{a}{+\inf} = 0$?
+        
+        Если $y_n-$бесконечно большая, то $\frac{1}{y_n}-$ бесконечно малая.
+        
+        $\forall E > 0 \exists N \forall n > N : E < y_n$\
+    \end{proof}
+    }
+}
+    
+\newpage
+\subsection{Теорема Кантора о стягивающихся отрезках}
+\begin{theorem*}{}
+    Пусть дана убывающая система: $[a_1, b_1] \supset [a_2, b_2] \supset \dots$
+    
+    Пусть $\displaystyle (b_n - a_n) \xrightarrow[n \to \infty]{} 0$, тогда:
+    
+    $\exists! c \in \bigcap\limits_{k = 1}^{\infty}[a_k, b_k]$ и при этом $b_n \to c$ и $a_n \to c$
+\end{theorem*}
+\begin{proof} $ $
+
+    По аксиоме Кантора: 
+    $\exists c \in \bigcap\limits_{k = 1}^{\infty}[a_k,b_k]\Rightarrow$
+    
+    $\forall n : c \in [a_n, b_n] \Rightarrow$
+    
+    $0 \leqslant b_n - c \leqslant b_n - a_n$
+    
+    $b_n - a_n \xrightarrow[n \to \infty]{} 0 \Rightarrow b_n \to c$ по теореме о двух городовых.
+    
+    Аналогично $a_n \to c$.
+    
+    $c$ --- однозначно заданно в силу единственности предела.
+\end{proof}

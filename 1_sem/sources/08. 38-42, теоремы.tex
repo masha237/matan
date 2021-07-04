@@ -1,0 +1,144 @@
+\newpage
+\rhead{Леонов}
+\subsection{Непрерывность композиции и соответствующая теорема для пределов}
+\begin{theorem*} (о непрерывности композиции) \\
+$$ f: \  D \subset X \rightarrow Y, \quad g: \  E \subset Y \rightarrow Z, \quad f(D) \subset E,$$
+$f$ --- непрерывно в $x_0 \in D$, $g$ - непрерывно в $f(x_0)$, \\
+Тогда $g \circ f$ непрерывно в $x_0$
+\end{theorem*}
+
+\begin{proof}
+Воспользуемcя определением непрерывности по Гейне: \\
+Так как $f$ --- непрерывно в $x_0$, то выберем последовательность $x_n$ такую, что
+$x_n \rightarrow x_0, \  x_n \in D, \  x_n \neq x_0$,
+тогда по определению непрерывности
+$f(x_n) \rightarrow f(x_0)$, 
+при этом 
+$f(x_n) \in E, \  f(x_n) \neq f(x_0)$. 
+Так как $g$ --- непрерывно, то по определению получаем $g(f(x_n)) \rightarrow g(f(x_0))$
+\end{proof}
+
+\begin{theorem*} (о пределе композиции) \\
+$$ f: \  D \subset X \rightarrow Y, \quad g: \  E \subset Y \rightarrow Z, \quad  f(D) \subset E $$
+\begin{enumerate}
+    \item $a$ --- предельная точка $D$, $\lim_{x \rightarrow a}{f(x)} = A$,
+    \item $A$ --- предельная точка $E$, $\lim_{y \rightarrow A}{g(y)} = B$,
+    \item $\exists U(a): \ f(x) \neq A$ в этой окрестности,
+\end{enumerate}
+Тогда $\lim_{x \rightarrow a}{g(f(x))} = B$
+\end{theorem*}
+
+\begin{proof}
+Воспользуемся определением предела отображения по Гейне: \\
+Так как $f$ имеет предел в $x_0$, то выберем последовательность $x_n$ такую, что
+$
+x_n \rightarrow a, \ x_n \in D, \ x_n \neq a
+$, тогда по определению предела
+$
+y_n = f(x_n) \rightarrow A 
+$, при этом 
+$
+y_n \in E, \ 
+y_n \neq A
+$, тогда, так как $g$ имеет предел в точке $A$, то
+$
+g(y_n) \rightarrow B 
+$
+\end{proof}
+
+\begin{remark}
+$$f: \  D \subset X \rightarrow \R^m, \quad x \mapsto \{f_1(x), f_2(x), \dots, f_m(x)\},$$
+Тогда $f$ --- непрерывно в $x_0$ (или на $E \subset D$) $\Leftrightarrow$ $\forall i \quad f_i$ --- непрерывно
+\end{remark}
+
+\begin{proof}
+По принципу покоординатной сходимости: \\
+$x^{(n)}$ --- последовательность в $\R^m$, $a \in \R^m$ \\
+$x^{(n)} \rightarrow a \Leftrightarrow \forall i = 1 \dots m \quad x^{(n)}_i \rightarrow a_i$ \\
+$f$ --- непрерывно в $x_0$ $\Leftrightarrow$
+$$
+\left. \begin{array}{r}
+\forall x^{(n)} \rightarrow x_0 \\
+x^{(n)} \in D \\
+x^{(n)} \neq x_0 \\
+\end{array} \right| 
+\Rightarrow
+f(x^{(n)}) \rightarrow f(x_0)
+$$
+Тогда $\forall i \quad f_i(x^{(n)}) \rightarrow f_i(x_0)$
+\end{proof}
+\newpage
+\subsection{Теорема о топологическом определении непрерывности}
+\begin{theorem*} 
+$Y$ --- метрическое пространство, $f: \  X \rightarrow Y$ \\
+Тогда $f$ непрерывно на $X$ тогда и только тогда, когда для любого открытого $G \subset Y, \  f^{-1}(G)$ --- открытое в $X$
+\end{theorem*}
+
+\begin{proof}
+$(\Rightarrow)$ Если $f^{-1}(G) = \varnothing$, то оно открытое, что и надо. 
+Иначе пусть $x_0 \in f^{-1}(G), \ f(x_0) = y \in G$, 
+тогда, так как $G$ --- открытое, $\exists V(y) \subset G$. 
+Тогда по определению непрерывности $f$ в точке $x_0$ для $V(y) \  \exists U(x_0): \quad \forall x \in U(x_0) \quad f(x) \in V(y)$, 
+то есть $\forall x_0 \quad U(x_0) \subset f^{-1}(V(y)) \subset f^{-1}(G)$, 
+тогда $f^{-1}(G)$ --- открытое
+
+
+$(\Leftarrow)$ Пусть $f(x_0) = y$, тогда $\forall V(y)$ --- открытое множество. $\Rightarrow$ $f^{-1}(V(y))$ --- открытое и содержит $x_0$. То есть $\exists U(x_0) \in f^{-1}(V(y))$, тогда $\forall x \in U(x_0) \  f(x) \in V(y)$, значит $f$ --- непрерывно.
+\end{proof}
+\newpage
+\subsection{Теорема Вейерштрасса о непрерывном образе компакта. Следствия}
+\begin{theorem*} (Теорема Вейерштрасса) \\
+$X, Y$ --- метрические пространства, $f: \ X \rightarrow Y$, $f$ --- непрерывно на $X$\\
+Тогда если $X$ --- компактное множество, то $f(X)$ --- тоже компактное.
+\end{theorem*}
+
+\begin{proof}
+Пусть $f(X) \subset \underset{\alpha \in A}{\bigcup} G_\alpha$, где $G_\alpha$ - открыто в $Y$. По теореме о топологическом определении непрерывности $\forall \alpha \quad f^{-1}(G_\alpha)$ --- открытое множество. Тогда $X \subset \underset{\alpha \in A}{\bigcup} f^{-1}(G_\alpha)$. Так как $X$ --- компакт, то существует конечный набор $\alpha_1 \dots \alpha_n: \quad X \subset \overset{n}{\underset{i = 1}{\bigcup}} f^{-1}(G_{\alpha_i})$. Тогда $f(X) \subset \overset{n}{\underset{i = 1}{\bigcup}} G_{\alpha_i} \Rightarrow f(X)$ - компакт.
+\end{proof}
+
+\begin{consequence}
+\begin{enumerate}
+    \item Непрерывный образ компакта замкнут и ограничен. % по сути словесная формулировка теоремы
+    \item \textbf{1 теорема Вейерштрасса.}\\
+    $f: \ [a, b] \rightarrow \R$, $f$ - непрерывна на $[a, b]$, тогда $f$ --- ограниченна. % очевидно, так как [a, b] - компакт, f([a, b]) - тоже компакт, а значит ограниченна
+    \item $X$ --- компактно, $f: \  X \rightarrow \R$, $f$ --- непрерывна на $X$, тогда $\exists \max f(x), \  \min f(x)$ \\
+    \begin{proof}
+    По теореме $f(X)$ --- компактно, значит $f$ замкнута в $\R$. Тогда $\sup f(x) \in f(X) \Rightarrow \max f(X) = \sup f(X)$ % иначе x - предельная точка X, она не лежит в f(x) тогда X - не компакт 
+    % Не знаю включать ли это примечание в основной текст
+    \end{proof}
+    \item \textbf{2 теорема Вейерштрасса.} \\
+    $f: \  [a, b] \rightarrow \R$, $f$ --- непрерывна на $[a, b] \rightarrow \exists \max f(x), \  \min f(x)$
+\end{enumerate}
+\end{consequence}
+
+\newpage
+\subsection{Теорема о вписанном $n$-угольнике максимальной площади}
+\begin{theorem*}
+Пусть дана окружность фиксированного радиуса $R$. Тогда для любого $n$ наибольшим по площади вписанным $n$-угольником будет правильный многоугольник.
+\end{theorem*}
+
+\begin{proof}
+Пусть какие-либо две соседних стороны не равны. Тогда заменим их на отрезки к самой далекой от хорды точке окружности (то есть сделаем эти отрезки равными). При этом площадь многоугольника вырастет. % Так как основание треугольника не изменилось, а высота - увеличилась.
+Таким образом, мы доказали, что не бывает площади многоугольника больше, но теперь надо проверить, достигается ли максимум. % Мне эта строка не нравится, но лучше сформулировать не могу
+Рассмотрим площадь многоугольника как функцию от вектора центральных %вроде они так называются 
+углов треугольника.
+$$S(x) = S(\alpha_1 \dots \alpha_n) = \sum_{i = 1}^{n}\frac{1}{2} R^2 \sin \alpha_i,$$ где $0 \leqslant \alpha_i \leqslant \pi$, $\sum_{i = 1}^{n} \alpha_i = 2 \pi$
+При этом данная функция непрерывна по теоремам об арифметических свойствах и композиции непрерывных функций ($\alpha \mapsto \sin \alpha \mapsto \frac{1}{2} R^2 \sin \alpha \mapsto \sum \frac{1}{2} R^2 \sin \alpha$). Заметим, что множество векторов-аргументов ограниченно (очевидно) и замкнуто (все ограничения на $\alpha$ либо равенства, либо нестрогие неравенства). Тогда оно компактно. По следствию из теоремы Вейерштрасса функция, непрерывная на компакте, имеет максимум.
+\end{proof}
+\newpage
+\subsection{Лемма о связности отрезка}
+\begin{definition}
+Множество $A \subset X$ --- связное, если его нельзя представить в виде объединения двух непересекающихся открытых множеств. \\
+\end{definition}
+\begin{lemma}
+Пусть $\langle a, b \rangle \subset \R$. $\langle a, b \rangle$ --- связное множество, то есть не существует открытых в $\R$, непустых и непересекающихся $G_1, G_2$ таких, что $\langle a, b \rangle \subset G_1 \cup G_2$, $\langle a, b\rangle \cap G_1$ и $\langle a, b\rangle \cap G_2$ --- непустые.
+\end{lemma}
+
+\begin{proof}
+Пусть $\alpha \in \langle a, \ b \rangle \cap G_1, \beta \in \langle a, b \rangle \cap G_2$
+Не умаляя общности пусть $\alpha < \beta$
+Пусть $t = \sup \left\{ x: \  [\alpha, x) \subset G_1 \right\}$. Заметим, что это множество непустое (так как $G_1$ - открытое, то $\exists U(\alpha) \subset G_1$, значит есть значения больше $\alpha$) и ограниченное ($x \in G_1, \ G_1 \cap G_2 = \varnothing \Rightarrow x < \beta$), поэтому супремум существует. 
+При этом $t \in [\alpha, \beta)$, а значит $t \in \langle a, b \rangle$. Если $t \in G_1$, тогда, так как $G_1$ --- открытое, $\exists U(t) \subset G_1$, что противоречит тому, как было выбрано $t$. Если $t \in G_2$, тогда $\exists U(t) \subset G_2$. Тогда не весь промежуток $[\alpha, \beta)$ попадает в $G_1$.
+Значит существует точка на $\langle a, b \rangle$, которая не покрывается ни одним из отрезков.
+\end{proof}
+\newpage
