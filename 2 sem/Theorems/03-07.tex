@@ -1,0 +1,98 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Теорема о свойствах неопределенного интеграла}
+Пусть функции $f, g: \left \langle a, b \right \rangle \to \mathbb{R}$ имеют первообразные, $\alpha \in \mathbb{R}$. \\
+Тогда: \\
+1. Функция $f + g$ имеет первообразную и $\int (f + g) = \int f + \int g$ \\
+2. Функция $\alpha f $ имеет первообразную и при $\alpha \neq 0 $: $ \int \alpha f = \alpha \int f$. \\\\
+\textbf{Доказательство:} \\
+Пусть первообразная $f$ равна $F$, а первообразная $g$ равна $G$ \\
+1. По правилам дифференцирования первообразная $(f + g)$ равна $(F + G)$. \\\\
+Требуется доказать, что $\{F + G + C : C \in \mathbb{R} \} = \{F + C_1 : C_1 \in \mathbb{R} \} + \{G + C_2 : C_2 \in \mathbb{R} \}$ \\\\
+Обозначим левую и правую часть равенства как $A$ и $B$, \\\\
+В левую сторону, рассмотрим некоторое $k \in A$, тогда $k = F + G + C$, пусть $C_1 = C$, а $C_2 = 0$, тогда $k = (F + C_1) + (G + C_2)$, а это значит, что $k \in B$. \\\\
+В правую сторону, рассмотрим некоторое $d \in B$, тогда $d = (F + C_1) + (G + C_2)$, тогда пусть $C = C_1 + C_2$, тогда $d = F + G + C$, а это значит, что $d \in A$.\\\\\\
+2. Требуется доказать, что $\{\alpha F + C : C \in \mathbb{R} \} = \alpha \{F + C_1 : C_1 \in \mathbb{R} \}$ \\\\
+В левую сторону, рассмотрим некоторое $k \in A$, тогда $k = \alpha F + C$, пусть $C_1 = \frac{C}{\alpha}$, тогда $k = \alpha (F + C_1)$, а это значит, что $k \in B$. \\\\
+В правую сторону, рассмотрим некоторое $d \in B$, тогда $d = \alpha (F + C_1)$, тогда пусть $C = \alpha C_1 $, тогда $d = \alpha F + C$, а это значит, что $d \in A$.
+
+\newpage
+
+
+\subsection{Лемма об ускоренной сходимости}
+
+Пусть $f$, $g : D \rightarrow \mathbb{R}$, $a$ - предельная точка $D \subset \mathbb{R}$, $a \in \overline{\mathbb{R}}$\\
+Пусть также существует $U(a) : f \neq 0$ и $g \neq 0$ в $\dot{U}(a)$\\\\
+Пусть $\lim\limits_{x \rightarrow a} f(x) = 0$ и $\lim\limits_{y \rightarrow a} g(x) = 0$ (Также возможен вариант, что $\lim\limits_{x \rightarrow a} f(x) = + \infty$ и $\lim\limits_{y \rightarrow a} g(x) = +\infty$)\\
+Тогда для любой последовательности $x_k \rightarrow a$, $x_k \in D$, $x_k \neq a$ найдётся такая последовательность $y_k \rightarrow a$ ($y_k \in D$, $y_k \neq a$), что 
+$\lim\limits_{k \rightarrow +\infty} \frac{f(y_k)}{g(x_k)} = 0$ и $\lim\limits_{k \rightarrow +\infty} \frac{f(y_k)}{f(x_k)} = 0$ \\\\
+\textbf{Доказательство:}\\\\
+1. Пусть $f$, $g \rightarrow 0$, тогда для любого фиксированного $i$ можно добиться того, что $\left| \frac{f(x_j)}{f(x_i)} \right| < \frac{1}{i}$, начиная с какого-то $j_1 > i$. Аналогично, $\left| \frac{f(x_j)}{g(x_i)} \right| < \frac{1}{i}$ начиная с какого-то $j_2 > i$ (просто потому-что $f(x_i)$ и $g(x_i)$ константы)\\
+Продолжаем так до бесконечности, получая последовательность $y_i := x_{max(j_1, j_2)}$ \\\\
+2. Пусть $f$, $g \rightarrow +\infty$. Считаем, что $f > 0$ и $g > 0$. Пусть $f(x_k)$ и $g(x_k)$ ~--- возрастающие последовательности (остальные случаи рассматриваются аналогично). \\
+Тогда $i = \min j: \begin{cases} f(x_j) \geq \sqrt{g(x_k)} \\ f(x_j) \geq \sqrt{f(x_k)} \end{cases}$\\
+Возьмём $y_k := x_{i - 1}$\\
+Тогда $\frac{f(y_k)}{f(x_k)} < \frac{\sqrt{f(x_k)}}{f(x_k)} = \frac{1}{\sqrt{f(x_k)}} \rightarrow 0$\\
+$\frac{f(y_k)}{g(x_k)} < \frac{\sqrt{g(x_k)}}{g(x_k)}= \frac{1}{\sqrt{g(x_k)}} \rightarrow 0$
+
+\newpage
+
+
+\subsection{Правило Лопиталя}
+Пусть $f$, $g$ ~--- дифференцируемы на $\langle a, b \rangle$, $g' \neq 0$ на $\langle a, b \rangle$ и существует $\lim\limits_{x \rightarrow a} \frac{f'(x)}{g'(x)} = A \in \overline{\mathbb{R}}$\\
+Не стоит забывать, что $\lim\limits_{x \rightarrow a + 0} \dfrac{f(x)}{g(x)}$ ~--- неопределенно.\\
+Тогда $\lim\limits_{x \rightarrow a} \frac{f(x)}{g(x)} = A$\\\\
+\textbf{Доказательство:}\\\\
+Берём последовательность $y_k \rightarrow a$ из леммы об ускоренной сходимости. \\\\
+По теореме Коши $\exists \xi_k \in [x_k, y_k]$ (не факт, что $x_k \leq y_k$)\\
+$\frac{f(x_k) - f(y_k)}{g(x_k) - g(y_k)} = \frac{f'(\xi_k)}{g'(\xi_k)}$\\
+Домножаем правую и левую часть на $\dfrac{g(x_k) - g(y_k)}{g(x_k)}$\\
+$\frac{f(x_k)}{g(x_k)} = \frac{f(y_k)}{g(x_k)} + \frac{f'(\xi_k)}{g'(\xi_k)} \left( 1 - \frac{g(y_k)}{g(x_k)} \right)$\\\\
+По лемме об ускорении, $\frac{f(y_k)}{g(x_k)} = 0$ и $\frac{g(y_k)}{g(x_k)} = 0$\\
+$\frac{f(x_k)}{g(x_k)} \rightarrow \frac{f'(\xi_k)}{g'(\xi_k)}$\\
+\newpage
+
+
+\subsection{Теорема Штольца}
+
+Пусть $y_n$ ~--- положительна, неограничена и строго монотонна (если $a = 0$, то $x_n$ ~--- тоже строго монотонна)\\\\
+Тогда если существует $\lim\limits_{n \rightarrow +\infty} \frac{x_n - x_{n - 1}}{y_n - y_{n - 1}} = a \in [0, +\infty]$\\\\
+Тогда $\exists \lim\limits_{n \rightarrow +\infty} \frac{x_n}{y_n} = a$\\\\
+\textbf{Доказательство:}\\\\
+Из предела следует, что $a - \varepsilon < \frac{x_n - x_{n - 1}}{y_n - y_{n - 1}} < a + \varepsilon$, значит для любого $n > N$,\\\\ все дроби вида  $\frac{x_{N+1} - x_{N}}{y_{N+1} - y_{N}}$,  $\frac{x_{N+2} - x_{N+1}}{y_{N+2} - y_{N+1}}$ ... $\frac{x_n - x_{n - 1}}{y_n - y_{n-1}}$ лежат в этом промежутке. \\\\
+Воспользуемся свойством дробей(медианты), что\\\\ если $\alpha < \frac{a}{b} < \beta$ и $\alpha < \frac{c}{d} < \beta$, то $\alpha < \frac{a+c}{b+d} < \beta$ и сложим все дроби\\\\
+Значит $a - \varepsilon < \frac{x_n -x_N}{y_n - y_N} < a + \varepsilon$\\\\
+Рассмотрим $\frac{x_n}{y_n} - a = \frac{x_N - a y_N}{y_n} + (1 - \frac{y_N}{y_n})(\frac{x_n - x_N}{y_n - y_N} - a)$,\\\\
+Так как $y_n$ возрастает, то $(1 - \frac{y_N}{y_n}) < 1$ \\\\
+Поэтому можем преобразовать в $|\frac{x_n}{y_n} - a| \leq |\frac{x_N - a y_N}{y_n}| + |\frac{x_n - x_N}{y_n - y_N} - a|$\\\\
+Сумма справа состоит из двух слагаемых, при $n>N$, второе слагаемое из доказанного меньше, чем $\varepsilon$. Первое слагаемое тоже меньше $\varepsilon$ (начиная с какого-то $N_1$, в силу того, что $x_N - a y_N$ константа, а $y_n$ строго возрастает). \\\\
+Тогда, $|\frac{x_n}{y_n} - a| < 2 \varepsilon$, а значит \\\\
+$\lim\limits_{n \rightarrow +\infty} \frac{x_n}{y_n} = a$
+
+
+\newpage
+		
+
+
+\subsection{Пример неаналитической функции}
+$f(x) = \begin{cases} e^{-1 / x^2}, & x \neq 0 \\ 0, & x = 0 \end{cases}$\\\\
+Докажем, что $f$ ~--- бесконечное дифференцируема на $\mathbb{R}$\\\\
+$\forall x \in \mathbb{R} : \forall k \in \mathbb{N} : \exists f^{(k)} (x)$)\\\\
+\textbf{Доказательство:}\\\\
+Если $x \neq 0$ ~--- то очевидно\\\\
+Пусть $x = 0$, тогда для любого $k$ существует $f^{(k)} (0) = 0$
+Из теоремы Лагранжа:\\\\
+Если $\exists \lim\limits_{x \rightarrow a + 0} f'(x) = \lim\limits_{x \rightarrow a - 0} f'(x) = L$, где $L \in \mathbb{R}$, то\\\\
+$f$ ~--- дифференцируема и $f'(a) = L$\\\\
+$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-1 / x^2\right)}$, $x \neq 0$\\\\
+$\lim\limits_{x \rightarrow 0} \dfrac{1/x^3}{e^{\left(1 / x^2\right)}} = \left[ \dfrac{\infty}{\infty} \right] = \lim\limits_{x \rightarrow 0} \dfrac{-3/x^4}{(-2/ x^3) e^{\left( 1 /x^2\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{3}{2} \cdot \dfrac{1 / x}{e^{\left( 1 / x^2 \right)}}$ \\\\
+$= \lim\limits_{x \rightarrow 0} \dfrac{-1 / x^2}{-(2 / x^3) e^{\left(1 / x^2\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{3}{4} \cdot x \cdot e^{\left(-1 / x^2\right)} \rightarrow 0$\\\\\\\\
+$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-1 / x^2\right)}$, $x \neq 0$\\\\
+$f'(0) = 0$
+\newpage
+
+
+\end{document}

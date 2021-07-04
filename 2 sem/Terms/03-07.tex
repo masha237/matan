@@ -1,0 +1,82 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Первообразная, неопределенный интеграл}
+\begin{equation*}
+    F:\left<a,b\right>\to\R
+    \text{ является первообразной }
+    f:\left<a,b\right>\to\R
+    \Leftrightarrow
+    \forall x \in\left<a,b\right>\ F'(x)=f(x)
+\end{equation*}
+Опередление подразумевает, что $F$ дифференциируема на $\left<a,b\right>$.
+
+\textbf{Неопределённый интеграл}~--- множество всех первообразных.
+
+\begin{equation*}
+    \int f=\int f(x)dx=\left\{F+C, C\in\R\right\}
+\end{equation*}
+
+
+\subsection{Теорема о существовании первообразной}
+\begin{equation*}
+    f \text{ непрерывна на } \left<a,b\right> \Rightarrow \exists F
+\end{equation*}
+
+\subsection{Таблица первообразных}
+\begin{equation*}
+    \begin{array}{|c|c|}
+    \hline
+       f(x) & F(x)  \\\hline
+       k & kx \\\hline
+       x^n & \frac{x^{n+1}}{n+1} (n \neq -1) \\\hline
+       \frac{1}{x} & \log |x| \\\hline
+       e^x & e^x \\\hline
+       a^x & \frac{a^x}{\log a} (a>0, a\neq 1) \\\hline
+       \sin x & -\cos x \\\hline
+       \cos x & \sin x \\\hline
+       \frac{1}{\sin^2 x} & -\cot x \\\hline
+       \frac{1}{\cos^2 x} & \tan x \\\hline
+       \frac{1}{\sqrt{1-x^2}} & \arcsin x \\\hline
+       \frac{1}{1+x^2} & \arctan x \\\hline
+       \frac{1}{\sqrt{x^2 \pm 1}} & \ln \left|x+\sqrt{x^2 \pm 1}\right|  \\\hline
+       \frac{1}{1-x^2} & \frac{1}{2} \ln \left|\frac{1+x}{1-x}\right| \\\hline
+    \end{array}
+\end{equation*}
+
+
+\subsection{Площадь, аддитивность площади, ослабленная аддитивность}
+$\mathcal{E}$~--- множество всех ограниченных фигур (фигура~--- подмножетсво $\R^2$).
+
+\textbf{Площадь}~--- $\sigma:\mathcal{E}\to\left[0,+\infty\right)$, которое удовлетворяет:
+\begin{enumerate}
+    \item \textit{Аддитивность}: $\sigma(A_1 \sqcup A_2)=\sigma(A_1)+\sigma(A_2)$ ($\sqcup$~--- дизъюнктное объединение)
+    \item \textit{Нормировка}: $\sigma([a,b]\times[c,d])=(b-a)(d-c)$
+\end{enumerate}
+
+\textbf{Ослабленная площадь}~--- $\sigma:\mathcal{E}\to\left[0,+\infty\right)$, которое удовлетворяет:
+\begin{enumerate}
+    \item \textit{Монотонность}: $E \subset D \Rightarrow \sigma(E)\le\sigma(D)$
+    \item \textit{Нормировка}: $\sigma([a,b]\times[c,d])=(b-a)(d-c)$
+    \item \textit{Ослабленная аддитивность}: $E_1 \cup E_2 = E \in \mathcal{E}$,
+    $E_1 \cap E_2$~--- вертикальный отрезок, $E_1$ и $E_2$ лежат по разные стороны от него.
+    Тогда $\sigma(E)=\sigma(E_1)+\sigma(E_2)$/
+\end{enumerate}
+
+\subsection{Определённый интеграл}
+Имеем $[c,d]\subset[a,b]\subset\R$.
+
+Введём понятие <<под графиком>> для $g:[a,b]\to[0,+\infty)$:
+\begin{equation*}
+    \text{ПГ}(g,[c,d])=\{(x,y):\ (x\in[c,d]) \land (0 \le y \le g(x))\}
+\end{equation*}
+
+Тогда \textbf{определённый интеграл} $f:[a,b]\to\R$ на $[c,d]$:
+\begin{equation*}
+    \int_c^d f = \int_c^d f(x)dx \overset{\text{def}}{=}\sigma\text{ПГ}(f_+,[c,d])-\sigma\text{ПГ}(f_-,[c,d])
+\end{equation*}
+где $f_+$ и $f_-$~--- положительная и отрицательная срезки (см. \ref{subsec:1.8}).
+\newpage
+\end{document}

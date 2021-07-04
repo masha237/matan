@@ -1,0 +1,175 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Признак Абеля--Дирихле сходимости несобственного интеграла}
+
+\begin{enumerate}
+
+\item (Дирихле) $f$ ~--- допустима на $[a, b)$, $g \in C^1 \left( [a, b) \right)$, $g(x) \xrightarrow[x \rightarrow b - 0]{} 0$ монотонная
+
+    $F(B) = \int\limits^B_a f$ ~--- ограничена, тогда $\int\limits^{\rightarrow b}_a fg$ ~--- сходится
+    
+\item (Абеля) $f$ ~--- допустима на $[a, b)$, $\int\limits^{\rightarrow b}_a f$ ~--- сходится
+
+    $g \in C^1 \left([a, b) \right)$, монотонная, ограниченная
+    
+    Тогда $\int\limits^{\rightarrow b}_a fg$ ~--- сходится
+
+\end{enumerate}
+
+\textbf{Доказательство:}
+        
+\begin{enumerate}
+
+\item Интегрируем по частям $\int\limits^B_a fg = F(x) g(x) \bigg|^B_a - \int\limits^B_a F(x) g'(x) dx$ ~--- конечен
+
+$\int\limits^{\rightarrow b}_a \left| F(x) \right| | g'(x) | dx \leq k \int\limits^{\rightarrow b}_a | g'(x) | dx = \pm k \int\limits^{\rightarrow b}_a g'(x) = \pm k g(x) \bigg|^b_a$
+
+\item $\alpha = \lim\limits_{x \rightarrow b- 0} g(x)$, поскольку $g$ ~--- ограниченная и монотонная, значит имеет предел
+
+$fg = f \alpha + f(g - \alpha)$
+
+$\int f \alpha$ ~--- сходится, $\int\limits^b_a f(g - \alpha)$ ~--- сходится по уже доказанному.
+
+\end{enumerate}
+
+
+\newpage
+
+
+\subsection{Интеграл Дирихле}
+
+$\int\limits^{+\infty}_0 \dfrac{\sin{x}}{x} dx = \dfrac{\pi}{2}$\\\\
+\textbf{Доказательство}\\\\
+$\cos{x} + \cos{2x} + \ldots + \cos{nx} = \dfrac{\sin{(n + 0.5)} x}{2 \sin{0.5 x}} - \dfrac{1}{2}$ (просто запомните это)\\\\
+$2 \sin {\dfrac{x}{2}} \cos{x} + 2 \sin{\dfrac{x}{2}} \cos^2{x} + \ldots = \sin{\left(n + \dfrac{1}{2} \right)}x - \sin{\dfrac{x}{2}}$\\\\
+$\sin {\dfrac{3}{2}x} - \sin {\dfrac{x}{2}} + \left( \sin {\dfrac{5}{2}} x - \sin {\dfrac{3}{2}} x \right) + \ldots = \sin {\left(n + \dfrac{1}{2} \right)x} - \sin {\dfrac{x}{2}}$\\\\
+$0 = \int\limits^{\pi}_0 \cos{x} + \ldots + \cos{nx} \ dx = \int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)} x}{2 \sin {0.5 x}} - \dfrac{\pi}{2}$\\\\\\
+Рассмотрим следующие интегралы:\\\\
+$\int\limits^{\pi}_0 \dfrac{\sin{(n + 0.5)}x}{2 \sin {0.5 x}} - \int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)}x}{x} \rightarrow 0$\\\\
+$\int\limits^{\pi}_0 \sin \left(n + \dfrac{1}{2} \right) x \cdot \left( \dfrac{1}{2 \sin {0.5 x}} - \dfrac{1}{x} \right) dx$\\\\
+Пусть $h(x) = \dfrac{1}{2 \sin {0.5 x}} - \dfrac{1}{x}$, доопределим $h(0)$\\\\
+$h(0) = \lim\limits_{x \rightarrow 0} \dfrac{1}{2 \sin {0.5x}} - \dfrac{1}{x} = \lim\limits_{x \rightarrow 0} \dfrac{x - 2 \sin {0.5 x}}{2 x \sin {0.5 x}}$ и по Тейлору найдём предел\\\\
+$\dfrac{x - 2 \left(0.5 x - 1/6 \cdot x^3/8 + o(x^3) \right)}{x^2 + o(x^2)}$ и $h'(0) = \dfrac{1}{24}$\\\\
+$\int\limits^{\pi}_0 \dfrac{\sin{(n + 0.5)x}}{2 \sin{0.5 x}} - \int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)x}}{x} = - \dfrac{\cos {(n + 0.5)x}}{n + 0.5} h(x) \bigg|^{\pi}_0 + \int\limits^{\pi}_0 \dfrac{\cos{(n + 0.5)}x}{n + 0.5} \cdot h'(x) \xrightarrow[n \rightarrow +\infty]{} 0$\\\\
+$\int\limits^{\pi}_0 \dfrac{\sin{(n + 0.5)}x}{x} = \int\limits^{(n + 0.5) \pi}_0 \dfrac{\sin{y}}{y} dy$ и при $n \rightarrow +\infty$ заменяем на заданный в условии интеграл. \\\\\\
+Итого:\\\\
+$\int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)x}}{2 \sin 0.5 x} - \dfrac{\pi}{2} = 0$, значит $\int\limits^{+\infty}_0 \dfrac{\sin{y}}{y} dy = \dfrac{\pi}{2}$
+
+\newpage
+
+
+\subsection{Свойства рядов: линейность, свойства остатка, необх. условие сходимости, критерий Больцано--Коши} 
+\textbf{Линейность}\\\\
+1. Пусть $\sum a_n$, $\sum b_n$ ~--- сходятся, тогда и ряд $\sum c_n$, где $c_n := a_n + b_n$ тоже сходится \\\\
+2. Пусть $\sum a_n$ ~--- сходится, тогда и ряд $\sum \lambda a_n$ тоже сходится, где $\lambda \in \mathbb{R}$ \\\\
+\textbf{Доказательство} \\\\
+1.$\lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} (a_n + b_n) = \lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} a_n + \lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} b_n$ \\\\       
+2. $\sum\limits^{\infty}_{n = 1} \lambda a_n = \lambda \sum\limits^{\infty}_{n = 1} a_n$\\\\\\
+\textbf{Свойства остатка}\\\\
+1 $\sum a_n$ ~--- сходится, тогда и любой остаток ряда сходится \\
+2 Какой-нибудь остаток ряда сходится, значит и сам ряд сходится \\
+3 Пусть $R_m = \sum\limits_{k = m}^{+\infty} a_k$, $\sum a_n$ ~--- сходится, значит и $R_m \xrightarrow[m \rightarrow +\infty]{} 0$ \\\\\\
+\textbf{Доказательство} \\\\
+1. $S_n = \sum\limits^n_{k = 1} a_k = \sum\limits^{m - 1}_{k = 1} a_k + \sum\limits_{k = m}^N a_k$, сумма и первое слагаемое конечна, значит и второе слагаемое конечное. \\\\
+2. Аналогично предыдущему \\\\
+3. $\sum\limits^{+\infty}_{k = 1} a_k = \sum\limits^{m - 1}_{k = 1} a_k + \sum\limits^{+\infty}_{k = m} a_k$ \\\\\\
+\textbf{Необходимое условие сходимости рядов} \\\\
+$\sum a_n$ ~--- сходится, тогда $a_n \xrightarrow[n \rightarrow +\infty]{} 0$\\\\\\
+\textbf{Доказательство}\\\\
+$\sum\limits^{+\infty}_{n = 1} a_n = S$, $S_n \rightarrow S$\\\\
+$a_N = S_N - S_{N - 1} \xrightarrow[N \rightarrow +\infty]{} 0$
+\newpage
+ \\\textbf{Критерий Больцано-Коши}\\\\
+Сходимость ряда $\sum\limits^{\infty}_{k = 1} a_k$ равносильна условию\\\\
+$$\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n > N : \forall p \in \mathbb{N} : \left| \sum\limits^{n + p}_{k = n + 1} a_k \right| < \varepsilon$$\\\\\\
+\textbf{Доказательство}\\\\
+По определению сходимость ряда $\sum\limits^{\infty}_{k = 1} a_k$ равносильна сходимости последовательности $S_n = \sum\limits^n_{k = 1} a_k$. Воспользуемся критерием Больцано-Коши для последовательностей \\\\
+$$\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n, m > N : |S_m - S_n| < \varepsilon$$\\\\
+Не умаляя общности можно считать, что $m > n$. Остаётся переобозначить $m = n + p$, где $p \in \mathbb{N}$ и заметить, что $S_m - S_n = \sum\limits^{n+p}_{k = n + 1} a_k$
+            
+\newpage
+
+\subsection{Признак сравнения сходимости положительных рядов}
+\textbf{Рассмотрим лемму:} \\\\
+Пусть $a_k \geq 0$, при всех $k \in \mathbb{N}$. Тогда сходимости $\sum a_k$ равносильно тому, что последовательность $S_n^{(a)}$ ~--- ограничена \\\\
+\textbf{Доказательство:}\\\\
+Последовательность ${S_n}$ возрастает, а по теореме о монотонной последовательности сходимость равносильна ограниченности сверху.\\\\
+\textbf{Сам признак:} \\\\          
+                Пусть $a_k$, $b_k \geq 0$. Тогда
+                
+                \begin{enumerate}
+                
+                    \item $\forall k : a_k \leq b_k$ (или даже $\exists c > 0 : \exists N : \forall k > N : a_k \leq c b_k$)
+                    
+                        Тогда
+                        
+                            $\sum a_k$ расходится. значит и $\sum b_k$ расходится
+                            
+                            $\sum b_k$ сходится, значит и $\sum a_k$ сходится
+                            
+                    \item Пусть $\exists \lim\limits_{k \rightarrow +\infty} \dfrac{a_k}{b_k} = l \in [0, +\infty]$
+                    
+                        Тогда
+                        
+                            При $0 < l < +\infty$ $\sum a_k$ сходится тогда и только тогда, когда $\sum b_k$ сходится
+                            
+                            При $l = 0$ $\sum b_k$ сходится, значит и $\sum a_k$ сходится, или $\sum a_k$ расходится, значит и $\sum b_k$ расходится
+                            
+                            При $l = +\infty$ $\sum a_k$ сходится, значит и $\sum b_k$ сходится, или $\sum b_k$ расходится, значит и $\sum a_k$ расходится
+                            
+                \end{enumerate}
+ \\
+            \textbf{Доказательство:}
+            
+                \begin{enumerate}
+                
+                    \item Следует из леммы
+                    
+                        $\sum a_k$ сходится $\Leftrightarrow \sum\limits^{+\infty}_{k = N} a_k$ сходится
+                        
+                        $a_k \leq c b_k \Rightarrow S_n^{(a)} \leq c \cdot S^{(b)}_n$
+                        
+                        $\sum a_k$ расходится $\Rightarrow S^{(a)}_n$ не ограничено сверху, значит и $S^{(b)}_n$ тоже не ограничено сверху
+                        
+                    \item Следует из первого случаи $l = 0$ и $l = +\infty$
+                    
+                        $0 < l < +\infty$. По определению предела
+                        
+                            $\exists N : \forall k > N : \dfrac{l}{2} < \dfrac{a_k}{b_k} < \dfrac{3l}{2}$
+                            
+                            $a_k > \dfrac{1}{2} b_k$, значит $\sum a_n$ сходится, значит и $\sum \dfrac{l}{2} b_n$ тоже сходится, значит и $\sum b_n$ сходится. Аналогично разбираются и остальные $3$ случая.
+                    
+                \end{enumerate}
+
+\newpage
+
+
+\subsection{Признак Коши сходимости положительных рядов}
+
+          Пусть $a_n \geq 0$ для всех $n$ и $k_n = \sqrt[n]{a_n}$
+            
+            \begin{enumerate}
+            
+                \item $\exists q < 1 : k_n \leq q$, начиная с некоторого места, значит ряд сходится 
+                
+                \item $k_n \geq 1$ для бесконечного числа номеров, значит ряд расходится
+                
+            \end{enumerate}
+ \\
+\textbf{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $k_n \leq q \Longleftrightarrow a_n \leq q^n$ при $n \rightarrow +\infty$, а $q^n$ ~--- сходится, значит и $\sum a_n$ ~--- сходится
+                
+                \item $a_n \geq 1$ ~--- верно для бесконечного числа $n$, значит $\exists n_k$, что $\lim a_{n_k} \neq 0$, значит $\sum a_n$ расходится.
+                
+            \end{enumerate}
+
+\newpage
+
+
+\end{document}

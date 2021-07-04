@@ -1,0 +1,299 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Объем фигур вращения}
+Формулировка 
+$$$$
+            Обозначим фигуры, полученную вращением по оси $x$ за $T_x(A) = \left\{ (x, y, z) : (x, \sqrt{y^2 + z^2}) \in A \right\}$
+        
+            По оси $y$ ~--- $T_y(A) = \left\{ (x, y, z) : (\sqrt{x^2 + z^2}, y^2) \in A \right\}$
+        
+            Пусть $f \in C[a, b]$, $f \geq 0$
+            
+            Тогда:
+            
+            \begin{enumerate}
+            
+                \item $V(T_x(\text{ПГ}(f, [a, b]))) = \pi \int\limits^b_a f^2(x) \ dx$
+                
+                \item $[a, b] \subset [0, +\infty) \ V(T_y(\text{ПГ}(f, [a, b]))) = 2 \pi \int\limits^b_a x f(x) \ dx$
+                
+            \end{enumerate}
+      
+$$$$      
+Доказательство 
+$$$$
+        
+            \begin{enumerate}
+            
+                \item
+                
+                $\phi: \Delta \in \operatorname{Segm}([a, b]) \mapsto V(T_{x \ or \ y} (\text{ПГ}(f, \Delta)))$ ~--- аддитивная функция.
+            
+                $\pi \min\limits_{x \in \Delta} f^2(x) \cdot l(\Delta) = V(F_{\Delta}) \leq \phi(\Delta) \leq V(\varepsilon_{\Delta}) = \pi \max\limits_{x \in \Delta} f^2(x) \cdot l(\Delta)$
+            
+                $\varepsilon_{\Delta}$ ~--- цилиндр прямой круговой
+            
+                $\phi(\Delta)$ ~--- плотность, значит $V(T_x(\text{ПГ}(f, [a, b]))) = \pi \int\limits^b_a f^2(x) dx$
+            
+                $\Delta : m_{\Delta}, M_{\Delta}$
+            
+                \begin{enumerate}
+            
+                    \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                    \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
+                
+                    \item $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$
+                
+                \end{enumerate}
+            
+                \item
+                
+                $V(T_y(\text{ПГ}(f, [a, b]))) = 2 \pi \int\limits^b_a x \cdot f(x) dx$
+            
+                $F_{\Delta} = T_y(\text{ПГ}(\min\limits_{\Delta} f, \Delta))$
+            
+                $\phi(\Delta) \leq V(\varepsilon_{\Delta}) = \sigma(ring) \cdot \max\limits_{\Delta} f = \pi(q^2 - p^2) \cdot \max\limits_{[p, q]} f = \pi (q + p) \max\limits_{x \in [p, q]} f(x) \cdot (q - p) \leq \pi \cdot \max\limits_{x \in [p, q]} (2x) \cdot \max\limits_{x \in [p, q]} f(x) \cdot (q - p)$
+            
+                Аналогично
+            
+                $\pi \min\limits_{x \in [p, q]} (2x) \cdot \min\limits_{x \in [p, q]} f(x) (q - p)$
+            
+                \begin{enumerate}
+            
+                    \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                        $\phi(\Delta) = \pi \cdot 2 x \cdot f(x) \leq \pi \max (2x) \cdot max f(x)$
+                    
+                    \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$
+                
+                    \item $p \rightarrow x_0$, $q \rightarrow x_0$, Итого $V(T_y(\text{ПГ}(f, [a, b]))) = \pi \cdot 2 x_0 \cdot f(x_0)$
+                
+                \end{enumerate}
+            
+            \end{enumerate}
+\newpage
+
+
+\subsection{Вычисление длины гладкого пути}
+Формулировка
+$$$$
+        
+            Пусть $\gamma : [a, b] \rightarrow \mathbb{R}^m$, $\gamma \in C^1$ ~--- путь.
+            
+            Тогда $l(\gamma) = \int\limits^b_a \| \gamma'(t) \| dt$
+            
+$$$$
+Доказательство
+$$$$
+        
+            Будем дополнительно считать, что $\gamma' \neq 0$ и что $\gamma$ ~--- инъективно. Если это не так, то разобьём на несколько частей, и каждую из них посчитаем отдельно.
+            
+            Пусть $\phi : \operatorname{Segm}[a, b] \rightarrow \mathbb{R}$ и $[p, q] \mapsto l\left(\gamma|_{[p, q]} \right)$
+            
+            Пусть $\phi$ ~--- аддитивная функция промежутка по следующей аксиоме:
+            
+            $\forall [a, b]$ и $\forall \gamma : [a, b] \rightarrow \mathbb{R}^m$ и $\forall c \in (a, b) \Longrightarrow l(\gamma) = l \left( \gamma|_{[a, c]} \right) + l \left( \gamma|_{[c, b]} \right)$
+            
+            Проверим, что $\| \gamma'(t) \|$ ~--- её плотность
+            
+            Это значит, что $\forall \Delta : \exists m_{\Delta}, M_{\Delta}$ и выполняются следующие свойства:
+            
+            \begin{enumerate}
+            
+                \item $l(\Delta) m_{\Delta} \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
+                
+                \item $\Delta \rightarrow x \Longrightarrow M_{\Delta} - m_{\Delta} \rightarrow 0$
+                
+            \end{enumerate}
+            
+            $\Delta \subset [a, b]$, $\gamma(t) = (\gamma_1(t), \gamma_2(t), \ldots, \gamma_m(t))$
+            
+            $m_i(\Delta) = \min\limits_{t \in \Delta} | \gamma'_i(t) |$
+            
+            $M_i(\Delta) = \max\limits_{\Delta} |\gamma'_i(t) |$
+            
+            $m_{\Delta} = \sqrt{\sum m_i(\Delta)^2}$
+            
+            $M_{\Delta} = \sqrt{\sum M_i(\Delta)^2}$
+            
+            Очевидно, что при любом $t \in \Delta \Longrightarrow m_{\Delta} \leq \| \gamma'(t) \|  \leq M_{\Delta}$, где $\| \gamma'(t) \| = \sqrt{\sum(\gamma'_i(t))^2}$
+            
+            При $\Delta \rightarrow x$ выражение $M_{\Delta} - m_{\Delta} \rightarrow 0$ по непрерывности $\gamma'_i(t)$ в точке $t = x$.
+            
+            Проверим, что $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+            
+            $\widetilde{\gamma} : \Delta \rightarrow \mathbb{R}^m, \widetilde{\gamma}(t) = \left(M_1(\Delta)t, M_2(\Delta)t, \ldots, M_m(\Delta)t\right) = M \cdot t$, где $M = (M_1(\Delta), M_2(\Delta), \ldots, M_m(\Delta) )$
+            
+            Отображение $T : C_{\gamma} \rightarrow C_{\overline{\gamma}} \Longrightarrow \gamma(t) \mapsto \overline{\gamma}(t)$ ~--- проверим, что расстяжение
+            
+            $\rho(\gamma(t_0), \gamma(t_1)) = \sqrt{\sum\limits_{i = 1}^n (\gamma_i(t_0) - \gamma_i(t_1))^2} = \sqrt{\sum(\gamma'_i(\mathcal{T}_i))^2(t_0 - t_1)^2} \leq \sqrt{\sum M_i{\Delta}^2 |t_0 - t_1|} = \rho(T(\gamma(t_0)), T(\gamma(t_1)))$, значит $T$ ~--- растяжение
+            
+            $l\left( \gamma|_{\Delta} \right) \leq l(\widetilde{\gamma})$, т.е. $\phi(\Delta) \leq M_{\Delta} l(\Delta)$.
+            
+            Аналогично $\phi(\Delta) \geq m_{\Delta}l(\Delta)$ ~--- сжатие.
+            
+            Значит $\| \gamma' \|$ ~--- плотность
+
+\newpage
+
+
+\subsection{Интеграл как предел интегральных сумм}
+Формулировка 
+$$$$
+
+			Пусть $f \in C[a, b]$
+
+			Тогда $\forall \varepsilon > 0 : \exists \delta > 0 : \forall \mathcal{T} : a = x_0 < x_1 < \ldots < x_n = b$ ранга меньше $\delta$ и $\forall \xi_1, \xi_2, \ldots, \xi_n$
+
+			$\left| \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1}) - \int\limits^b_a f(x) \ dx \right| < \varepsilon$
+
+$$$$
+Доказательство 
+$$$$
+
+		\begin{enumerate}
+			\item Поделим на отрезки в соответствии с дроблением. Очевидно, что $\int\limits^b_a f(x) dx = \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} f(x) dx$. Тогда рассмотрим разность
+
+				$\int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \int\limits^{x_k}_{x_{k - 1}} f(x) \ dx$
+
+				$\int\limits^{x_k}_{x_{k - 1}} (f(\xi_k) - f(x) \ dx) \rightarrow 0$, т.к. $x_{k - 1} \rightarrow x_k$, а $\xi_k \in [x_{k - 1}, x_k]$
+
+			\item По теореме Кантора о равномерной непрерывности
+
+				$\forall \varepsilon > 0 : \exists \delta > 0 : \forall x_1, x_2 : \left| x_1 - x_2 \right| < \delta \Longrightarrow \left| f(x_1) - f(x_2) \right| < \frac{\varepsilon}{b - a}$ <<Китайский $\varepsilon$>>
+
+				Берём $x_0, x_1, \ldots, x_n, \xi_1, \xi_2, \ldots, \xi_n$
+
+				$\left| \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}}f(x) \ dx \right| = \\ = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left( f(\xi_k) - f(x) \right) \ dx \right| \leq \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left| f(\xi_k) - f(x) \right| \ dx$
+
+				$\left| \xi_k - x_k \right| < \delta$ для любых $[x_{k - 1}, x_k]$ (по условию)
+
+				$\leq \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \frac{\varepsilon}{b - a} \ dx = \int\limits^b_a \frac{\varepsilon}{b - a} \ dx = \varepsilon$
+
+		\end{enumerate}
+\newpage
+
+
+\subsection{Теорема о формуле трапеций, формула Эйлера--Маклорена}
+Формулировка теоремы о формуле трапеций
+$$$$
+
+			Пусть $f \in C^2[a, b] \ a = x_0 < x_1 < \ldots < x_n = b$ и $\delta = \max (x_i - x_{i - 1})$
+
+			Тогда $\left| \sum\limits^n_{i = 1} \dfrac{f(x_{i - 1}) + f(x_i)}{2} (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \int\limits^b_a |f''|$
+
+$$$$
+Доказательство
+$$$$
+
+			$\int\limits^{x_i}_{x_{i - 1}} f(x) dx = \begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - \xi_i \end{bmatrix}$, причём $\xi_i$ ~--- середина промежутка $[x_{i - 1}, x_i]$. 
+			
+			$f(x)(x - \xi_i) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'(x)(x - \xi_i) dx = f(x_i) (x_i - \xi_i) - f(x_{i - 1})(x_{i - 1} - \xi_i) - \\ - \left(f'(x) \dfrac{(x - \xi_i)^2}{2} \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' \dfrac{(x - \xi_i)^2}{2}  dx \right) = \left(f(x_i) + f(x_{i - 1}) \right) \dfrac{x_i - x_{i - 1}}{2} - \\ - \left( f'(x) \left( - \dfrac{1}{2} \psi(x) \right) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' \left(-\frac{1}{2} \psi(x) \right) \ dx \right)$
+
+			$\begin{bmatrix} u = f' & u' = f'' \\ v' = (x - \xi_i) & \psi(x) = (x - x_{i - 1})(x_i - x) \end{bmatrix} \ x \in [x_{i - 1}, x_i]$ на $[a, b]$
+
+			$v = -\frac{1}{2} \psi(x)$
+
+			$(f(x_i) + f(x_{i - 1})) \cdot \frac{(x_i - x_{i - 1})}{2} - \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f'' \psi(x) \ dx$
+
+			$\left| \sum\limits^n_{i = 1} \frac{f(x_{i - 1}) + f(x_i)}{2} \cdot (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( \frac{f(x_{i - 1}) + f(x_i)}{2}(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f(x) \ dx \right) \right|$ 
+			
+			$\left| \sum\limits^n_{i = 1} \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f''(x) \psi(x) dx \right| = \frac{1}{2} \int\limits^b_a \left| f''(x) \right| \psi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a \left| f'' \right|$
+
+$$$$
+Простейший случай формулы Эйлера-Маклорена
+$$$$
+
+			$m, n \in \mathbb{Z}, f \in C^2[m, n]$. Тогда
+
+			$\int\limits^n_m f(x) \ dx = (\sum\limits^n_{i = m})^{\triangledown} f(i) - \frac{1}{2} \int\limits^n_m f''(x) \left\{ x \right\} (1 - \left\{ x \right\}) \ dx$
+
+			${x}$ ~--- дробная часть числа $x$, $\triangledown$ ~--- крайние суммы, т.е. крайние члены берутся с множителем $0.5$.
+			
+			Очевидно$^{TM}$, что это формула трапеции.
+
+			$[a, b] \leftrightarrow [m, n] \ x_0 = m, x_1 = m + 1, \ldots, x_{last} = n$
+
+			$\left\{ x \right\} (1 - \left\{ x \right\})$ ~--- парабола между двумя целыми точками
+\newpage
+
+
+\subsection{Свойства верхнего и нижнего пределов}
+Формулировка
+$$$$
+    
+            Пусть $x_n$, $x_n'$ ~--- произвольные последовательности. Тогда
+            
+            \begin{enumerate}
+            
+                \item $\varliminf x_n \leq \varlimsup x_n$
+                
+                \item $\forall n \ \ \ x_n \leq x_n'$. Тогда
+                
+                    $\varlimsup x_n \leq \varlimsup x_n'$
+                    
+                    $\varliminf x_n \leq \varliminf x_n'$
+                    
+                \item $\forall \lambda > 0$
+                
+                    $\varlimsup(\lambda x_n) = \lambda \cdot \varlimsup x_n$
+                    
+                    $\varliminf(\lambda x_n) = \lambda \cdot \varliminf x_n$
+                    
+                \item $\varlimsup (-x_n) = -\varliminf(x_n)$
+                
+                    $\varliminf (-x_n) = -\varlimsup(x_n)$
+                    
+                \item $\varlimsup (x_n + x_n') \leq \varlimsup x_n + \varlimsup x_n'$
+                    
+                    $\varliminf (x_n + x_n') \geq \varliminf x_n + \varliminf x_n'$
+                    
+                    Если правые части имеют смысл
+                    
+                \item $t_n \rightarrow l \in \overline{\mathbb{R}}$ 
+                
+                    $\varlimsup (x_n + t_n) = \varlimsup x_n + \lim t_n$
+                
+                    Если правая часть имеет смысл
+                    
+                \item $t_n \rightarrow l > 0, l \in \mathbb{R}$ 
+                
+                    $\varlimsup(x_n \cdot t_n) = l \cdot \varlimsup x_n$
+                
+            \end{enumerate}
+            
+$$$$
+Доказательство
+$$$$
+
+            \begin{enumerate}
+            
+                \item Следует из того факта, что $z_n \leq x_n \leq y_n$
+                
+                \item $y_n \leq y'_n$
+                
+                \item $\sup(\lambda A) = \lambda \sup(A)$
+                
+                \item $\sup(-A) = -\inf(A)$
+                
+                \item $\sup(x_n + x_n', x_{n + 1} + x_{n + 1};, \ldots) \leq y_n + y_n'$, т.к. это верхняя граница для всех сумм над $\sup$
+                
+                \item $l \in \mathbb{R}$, тогда $\forall \varepsilon > 0 : \exists N_0: \forall k > N_0$
+                
+                    $x_k + l - \varepsilon < x_k + t_k < x_k + l_k + \varepsilon$
+                    
+                    $y_n + l - \varepsilon \leq \sup(x_n + t_n, x_{n + 1} + t_{n + 1}, \ldots) \leq y_n + l + \varepsilon$, при $N \rightarrow +\infty$
+                    
+                    $(\varlimsup x_n) + l - \varepsilon \leq \varlimsup (x_n + y_n) \leq (\varlimsup x_n) + l + \varepsilon$
+                    
+                \item Без доказательства
+                
+            \end{enumerate}
+\newpage
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Координатная функция}
+$F: X\to\R^m$ и $x \mapsto F(x)=(F_1(x), \dots, F_m(x))$.
+Тогда $F_1(x), \dots, F_m(x)$~---координатные функции.
+
+\subsection{Двойной предел, повторный предел}\label{subsec:1.44}
+https://youtu.be/bJiRRCj630Q?t=2h32m33s\\
+$D_1, D_2 \subset \R$, $a$~--- предельная точка $D_1$, $b$~--- предельная точка $D_2$\\
+$(D_1 \setminus \{a\})\times(D_2 \setminus \{b\})\subset D \quad f:D\to\R$\\
+Повторный предел $\lim\limits_{x \to a}\left(\lim\limits_{y \to b}f(x,y)\right)$:\\
+$\forall x \in (D_1 \setminus \{b\})$ пусть $\exists \varphi(x)=\lim\limits_{y \to b} f(x,y)$.\\
+Тогда если $\exists \lim\limits_{x \to a}\varphi(x)$, то это и есть наш повторный предел.\\\\
+Двойной предел:
+\begin{equation*}
+    \lim_{\underset{y \to b}{x \to a}}f(x,y)=A \quad \Leftrightarrow \quad
+    \forall W(A) \quad \exists U(a), V(b):\  \forall x\in\dot{U}(a), y\in\dot{V}(b) \quad f(x,y) \in W(A)
+\end{equation*}
+Занятно: для $f(x,y)=x\sin\frac{1}{y}+y\sin\frac{1}{x}$ нет повторного предела в $(0,0)$,
+но есть двойной, и он равен нулю.
+
+\subsection{Предел по направлению, предел вдоль пути}
+https://youtu.be/wWtKfrt\_ZQY?t=1h10m40s
+
+Предел $f:D\subset\R^m\to\R$ в точке $a\in\R^m$ по направлению $v\in\R^m$ ($|v|=1$): $\lim\limits_{t \to 0+}f(a+tv)$.
+В более узком понимании: $\lim\limits_{x \to a}f|_{\{a+tv, t>0\} \cap D}$
+
+Предел вдоль пути (непрерывной кривой).
+$\gamma: [\alpha, \beta] \to D, \gamma(\alpha)=a$\qquad
+$\lim\limits_{t \to \alpha}f(\gamma(t))$
+
+Если предел в точке $a$ существует, то пределы по всем направлениям/кривым тоже существуют и равны пределу в точке.
+
+Если пределы по разным направлениям/кривым пределы различны, то предела в точке $a$ не существует.
+
+
+\subsection{Линейный оператор}
+Оно же линейное отображение.
+https://youtu.be/wWtKfrt\_ZQY?t=1h21m
+
+Как и в линале,
+\begin{equation*}
+    f: \R^m \to \R^n \text{ линейно}
+    \quad\Leftrightarrow\quad
+    \forall \alpha, \beta \in \R \quad \forall x, y \in \R^m \quad
+    f(\alpha x + \beta y) = \alpha f(x) + \beta f(y)
+\end{equation*}
+
+\subsection{Отображение бесконечно малое в точке.}
+https://youtu.be/wWtKfrt\_ZQY?t=1h38m40s
+
+\begin{equation*}
+    \varphi: E\subset\R^M\to\R^l\text{ бескноечно мало в точке }x_0 \in \operatorname{Int} E
+    \Leftrightarrow
+    \lim_{x \to x_0}\varphi(x)=\0
+\end{equation*}
+
+\end{document}

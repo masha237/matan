@@ -1,0 +1,73 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Верхний и нижний пределы}
+https://goo.su/62FQ
+
+\begin{itemize}
+    \item Дана последовательность $x_n$.
+    \item $y_n:=\sup(x_n, x_{n+1}, x_{n+2},\ldots)$
+    \item $z_n:=\inf(x_n, x_{n+1}, x_{n+2},\ldots)$
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Верхний предел} $x_n$: $\overline{\lim\limits_{n\to+\infty}} x_n = \lim\limits_{n\to+\infty}y_n$
+    \item \textbf{Нижний предел} $x_n$: $\underline{\lim\limits_{n\to+\infty}} x_n = \lim\limits_{n\to+\infty}z_n$
+\end{itemize}
+
+
+\subsection{Частичный предел}
+    Если существует попоследовательность сходящаяся к точке, то эта точка есть частичный предел.
+    \newline
+    
+    Частичный предел вещественной последовательности $x_n$ --- предел вдоль подпоследовательности $n_k$:
+    $$n_k\to+\infty, n_1<n_2<\ldots \quad \lim x_{n_k}\in\overline\R$$
+
+
+\subsection{Абсолютно сходящийся интеграл, ряд}
+$f$ --- допустимая функция на $[a, b)$
+\newline
+\newline
+
+Интеграл $\int_a^b (f)$ -- абсолютно сходится, если:
+\begin{enumerate}
+    \item $\int_a^b (f)$ сходится
+    \item $\int_a^b (|f|)$ сходится
+\end{enumerate}
+
+Ряд $A$ абсолютно сходится, если:
+\begin{enumerate}
+    \item $\sum a_n$ сходится
+    \item $\sum |a_n|$ сходится
+\end{enumerate}
+
+
+\subsection{Числовой ряд, сумма ряда, сходимость, расходимость}
+Числовой ряд:
+\newline
+
+$a_1+a_2+a_3\ldots $, $\sum\limits_{i=1}^{+\infty} a_i$ -- числовой ряд ($a_i\in\R$)
+\newline
+
+Частичная сумма:
+\newline
+
+$\forall N\in\N \quad S_n:=\sum\limits_{i=1}^n a_i$ -- частичная сумма
+\newline
+
+Сходимость ряда:
+\newline
+
+Если $\exists \lim_{N\to+\infty} S_n=S\in\R$, ряд сходится, иначе ряд расходится.
+
+
+\subsection{$n$-й остаток ряда}
+Ряд с $N$-ого члена
+\newline
+
+$\sum\limits_{k=N}^{+\infty} a_k$ -- $N$-й остаток ряда
+
+
+\end{document}

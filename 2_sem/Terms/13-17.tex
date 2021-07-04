@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Плотность аддитивной функции промежутка}
+$f: <a,b> \rightarrow \mathbf{R}$, $\phi : Segm<a,b> \rightarrow \mathbf{R}$ \\ 
+$\phi$ - аддитивная функция промежутка. \\
+$f$ - плотность $\phi$, если: \\ 
+$$\forall \Delta \in Segm<a, b> : \inf_{x \in \Delta} f(x) \cdot l(\Delta) \leq \phi (\Delta) \leq \sup_{x \in \Delta} f(x) \cdot l(\Delta)$$
+
+
+\subsection{Выпуклая функция}
+$f:<a,b> -> R$ выпуклая, если
+$$$$
+$\forall x, y \in <a, b> \alpha \in [0,1] f(\alpha x + (1 - \alpha)y) \leq \alpha f(x) + (1 - \alpha)f(y)$
+$$$$
+График f ниже любой хорды.
+
+
+\subsection{Выпуклое множество в $R^m$}
+$A \subset R^n$ -- выпуклое, если $\forall x, y \in A : \ [x, y] \in A$
+$$$$
+$[x, y] = \{x + t(y - x)| t \in [0, 1]\}$
+
+
+\subsection{Надграфик}
+$\{(x,y) \ x \in <a, b> \ y \geq f(x)\}$
+
+\newpage
+
+\lhead{Акулов}
+\subsection{Опорная прямая}
+Прямая в $\mathbb{R^2}$, проходящая через $(x, f(x))$, такая что график $f(x)$ лежит в одной полуплоскости относительно этой прямой. \\
+Не путать с касательной. Например для $f(x) = x$ прямая $y = x$ -- опорная, а для $f(x) = |x|$ прямые $y = kx \ \forall k \in [-1; 1]$ -- опорные. \\
+Аналогичное определение и для фигур в $\mathbb{R^2}$.
+\newpage
+
+\end{document}

@@ -1,0 +1,170 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../Images/}}}
+\begin{document}
+
+
+\subsection{Иррациональность числа пи}
+https://youtu.be/24lOpDOdHLU?t=7918
+
+\begin{theorem}
+    Число $\pi^2$ --- иррационально (
+    $\pi$ --- тоже :))
+\end{theorem}
+\begin{proof}
+
+$$H_n:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt$$
+
+    Пусть $\pi^2=\frac{p}{q}$
+
+    $$H_n=(4n-2)H_{n-1}-\pi^2 H_{n-2}$$
+
+    $$H_0 = 2, \quad H_1=\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(\frac{\pi^2}{4}-t^2)\cos t = 2\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} t\sin t dt = 2t(-\cos t)\Big|_{\ldots}^{\ldots}+2\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos t = 4$$
+
+    $$H_n=\ldots H_1+\ldots H_0 = P_n(\pi^2) \text{ --- многочлен с целыми коэффициентами, степень}\leq n$$
+    
+    $$q^{n}P_n\left(\frac{p}{q}\right)=\text{ целое число }=q^{n}H_n>0 \Rightarrow q^{n}H_n\geq 1 \Leftarrow\text{этого не может быть}$$
+    
+    $$1\leq\frac{q^{n}}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt \leq \frac{q^{n} 4^n}{n!}\pi\xrightarrow[n\to +\infty]{}0$$
+    Противоречие.
+\end{proof}
+
+
+\newpage
+
+
+\subsection{Лемма о трех хордах}
+ https://youtu.be/Ddj4g9BI0d4?t=1883
+
+ $f:\langle a,b\rangle\to\R$. Тогда эквивалентны следующие утверждения:
+    \begin{enumerate}
+        \item $f$ --- вып. $\langle a,b\rangle$
+        \item $\forall x_1,x_2,x_3\in\langle a,b\rangle \ \ x_1<x_2<x_3 \quad \frac{f(x_1)-f(x_2)}{x_1-x_2}\leq\frac{f(x_1)-f(x_3)}{x_1-x_3}\leq\frac{f(x_2)-f(x_3)}{x_2-x_3}$
+    \end{enumerate}
+    
+\begin{proof}
+    Очевидно по рисунку посмотрите леку (2 это просто угловые коэффициенты). 
+    
+    Вот норм док-во.
+    
+    Левое $\Leftrightarrow f(x_2)(x_3-x_1)\leq f(x_3)(x_2-x_1)+f(x_1)(x_3-x_2)$
+
+    $$f\left(x_3\frac{x_2-x_1}{x_3-x_1}+x_1\frac{x_3-x_2}{x_3-x_1}\right)=f(x_2)\leq f(x_3)\frac{x_2-x_1}{x_3-x_1}+f(x_1)\frac{x_3-x_2}{x_3-x_1}$$
+    
+    Это неравенство из определения выпуклости 
+    \begin{remark}
+    Если $f$ --- строго выпуклая, то в лемме оба неравенства строгие.
+    \end{remark}
+\end{proof}
+    
+    
+\newpage
+
+
+\subsection{Теорема об односторонней дифференцируемости выпуклой функции}
+https://youtu.be/Ddj4g9BI0d4?t=3014
+
+\begin{theorem}
+    $f$ --- вып. $\langle a,b\rangle$. Тогда $\forall x\in(a,b) \ \ \exists f_+'(x), f_-'(x)$ и $\forall x_1, x_2\in(a,b), x_1<x_2$
+    $$f_-'(x_1)\leq f_+'(x_1)\leq \frac{f(x_2)-f(x_1)}{x_2-x_1}\leq f_-'(x_2)$$
+\end{theorem}
+
+    Для лучшего понимания рисунок в леке.
+
+    Напоминание:
+
+    $f_+'(x_1)=\lim\limits_{x\to x_1+0}\frac{f(x)-f(x_1)}{x-x_1}$ --- монотонно убывающая функция от $x$
+
+
+\begin{proof} 
+    Пусть $u < x_1 < v < x_2$, тогда (по лемме о 3 хордах)
+    
+    $$\frac{f(x_1)-f(u)}{x_1-u}\leq\frac{f(v)-f(x_1)}{v-x_1}\leq\frac{f(x_2)-f(x_1)}{x_2-x_1}\leq\frac{f(x_2)-f(v)}{x_2-v}$$
+    
+    $\frac{f(x_1)-f(u)}{x_1-u}$ (A) - возрастает как функция от u (по лемме о 3 хордах) 
+    
+    $\frac{f(v)-f(x_2)}{v-x_2}$ (B) - тоже возрастает 
+    
+    3 - C
+    
+    4 - D
+    
+    Перейдём к пределу при u $\rightarrow$ $x_1 - 0$ в н-ве $A \leq B$ : $f_-'(x_1)\leq B$
+    
+    Перейдём к пределу при v $\rightarrow$ $x_1 + 0$ в н-ве $A \leq B$ : $f_-'(x_1)\leq f_+'(x_1)$
+    
+    Так же остальные
+    
+\end{proof}
+
+Следствие:
+
+\begin{consequence}
+    $f$ --- вып. на $\langle a,b\rangle \Rightarrow f$ непр. на $(a,b)$
+\end{consequence}
+
+\newpage
+
+
+\subsection{Следствие о точках разрыва производной выпуклой функции}
+
+Не оч понял что за следствие мб вот это (Если не то пишите в тг)
+
+https://youtu.be/Ddj4g9BI0d4?t=7211
+
+(Далее из конспекта 37)
+
+\begin{remark}
+    $f:\langle a,b\rangle\to\R$ --- вып.
+
+    Тогда $f$ --- дифф. на $(a,b)$ за исключением, может быть, счетного множества точек.
+\end{remark}
+
+\begin{proof}
+    $\forall x \ \ \exists f_+'(x), f_-'(x)$
+
+    $f_\pm'$ возрастает
+
+    $f_-'(x)=f_+'(x)\Rightarrow f$ дифф. в $x$
+
+    $f_-'(x)<f_+'(x)\Rightarrow f$ не дифф. в $x$
+
+    Тогда $x$ --- точка скачка для $f_+', f_-'$, их НБСЧ, т.к. $f^+$ и $f^-$ возрастают.
+\end{proof}
+
+
+\newpage
+
+
+\subsection{Описание выпуклости с помощью касательных}
+https://youtu.be/Ddj4g9BI0d4?t=4858
+
+\begin{theorem}
+    $f$ --- дифф. на $\langle a,b\rangle$. 
+    Тогда эквивалентны:  
+    
+    1) $f$ --- выпуклый (вниз)
+    
+    2) График $f$ расположен не ниже любой касательной
+
+    т.е. $\forall x, x_0 \quad f(x)\geq f(x_0)+f'(x_0)(x-x_0)$
+\end{theorem}
+
+\begin{proof}
+    ``$\Rightarrow$''
+
+    Если $x>x_0 \quad f'(x_0)\leq\frac{f(x)-f(x_0)}{x-x_0}$, это неравенство 2. из предпредыдущей теоремы
+
+    $x<x_0$ аналогично
+
+    ``$\Leftarrow$'' фиксируем $x_0$. Берем $x_1<x_0<x_2$
+
+    $f(x_1)\geq f(x_0)+f'(x_0)(x_1-x_0)$;
+    
+    $f(x_2)\geq f(x_0)+f'(x_0)(x_2-x_0)$,
+    
+    т.е. $\frac{f(x_1)-f(x_0)}{x_1-x_0}\leq f'(x_0)\leq \frac{f(x_2)-f(x_0)}{x_2-x_0}$. Это верно по лемме о 3 хордах.
+\end{proof}
+\newpage
+
+
+\end{document}
